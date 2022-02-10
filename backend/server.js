@@ -28,7 +28,3 @@ app.use(express.urlencoded({ extended: false }));
 app.listen(3000, baseUrl, ()=>{
     console.log('server is listening to port ');
 })
-
-// app.listen(3000, ()=>{
-//     console.log('server is listening to port');
-// })
