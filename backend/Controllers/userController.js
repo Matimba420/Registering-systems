@@ -3,7 +3,7 @@ const seed = require('../db/config')
 
 const pool = seed;
 
-exports.addOne = (req, res) => {
+exports.register = (req, res) => {
     let query = {
         text: 'INSERT INTO employees (emp_id, name, email, password) VALUES ($1, $2, $3, $4) RETURNING (emp_id, name, email)',
         value: [req.body.emp_id, req.body.fullName, req.body.email, req.body.password]
