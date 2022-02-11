@@ -18,7 +18,7 @@ exports.register = (req, res) => {
             res.send(err);
         })
 },
-exports.signIn = (req, res) => {
+exports.logIn = (req, res) => {
     let query = {
         text: '',
         value: [req.body.email, req.body.password]
