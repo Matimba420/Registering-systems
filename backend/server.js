@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 // const commentRoute = require('./routes/comment');
-// const userRoute =  require('./routes/user')
+const userRoute =  require('./routes/user')
 // const watchlistRoute = require('./routes/watchlist')
 // const authRoute = require('./routes/auth')
 const app = express();
@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // app.use('/api/comment', commentRoute);
-// app.use('/api/user', userRoute);
+app.use('/api/user', userRoute);
 // app.use('/api/watchlist', watchlistRoute);
 // app.use('/api/auth', authRoute);
 // app.use('/user', userRoute)
