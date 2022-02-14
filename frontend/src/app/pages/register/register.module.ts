@@ -8,8 +8,8 @@ import { RegisterPageRoutingModule } from './register-routing.module';
 
 import { RegisterPage } from './register.page';
 
-import { FooterComponent } from 'src/components/footer/footer.component';
-import { LoginComponent } from 'src/components/login/login.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { LoginComponent } from 'src/app/components/login/login.component';
 import  {HttpClientModule} from '@angular/common/http'
 
 // import { RegisterComponent } from 'src/components/register/register.component';
