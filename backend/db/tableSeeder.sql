@@ -6,6 +6,7 @@ CREATE TABLE employees(
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
+    cell_no VARCHAR(11) NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
@@ -25,3 +26,12 @@ CREATE TABLE attendance(
     temp VARCHAR(5) NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+--ADMIN TABLE
+DROP TABLE IF EXISTS admin CASCADE;
+CREATE TABLE admin(
+    admin_id SERIAL PRIMARY KEY,
+    admin_name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    FOREIGN KEY(emp_id) REFERENCES employees (emp_id)
+)
