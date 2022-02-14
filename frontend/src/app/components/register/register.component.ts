@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { CrudService } from '../se/register.service'; 
-import { RegisterService } from 'src/app/services/register.service';
+import { UserService } from '../../services/user.service'
 import { AlertController } from '@ionic/angular';
 import { OnInit } from '@angular/core';
 
@@ -17,7 +17,7 @@ export class RegisterComponent implements OnInit {
   passwordMessage: any = '';
   password_matched: boolean = false;
   submitted = false;
-  constructor( private registerservice: RegisterService, private formBuilder: FormBuilder, public alertController: AlertController){}
+  constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController){}
   //Add user form actions
   async presentAlert() {
     const alert = await this.alertController.create({
@@ -30,6 +30,7 @@ export class RegisterComponent implements OnInit {
   }
   get registerValidation() { return this.registerForm.controls; }
   onSubmit() {
+    this.submit();
   
      this.submitted = true;
     // stop here if form is invalid
@@ -51,28 +52,35 @@ export class RegisterComponent implements OnInit {
      
         console.log("form ", this.registerForm.value);
         
+        
        
-        // this.registerservice.adduser(this.registerForm.value); //calling add user service
-        // this.presentAlert();
+        // this.userservice.adduser(this.registerForm.value); //calling add user service
+        this.presentAlert();
         
     }
   
   }
     ngOnInit() {
+
+      // this.passwordMatch();
       //Add User form validations
       this.registerForm = this.formBuilder.group({
       fullName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       empno: ['', [Validators.required,]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required]],
+      confirmpassword: ['', [Validators.required]]
       });
     }
 
     passwordMatch(): boolean {
-      if(this.registerForm.value.confirm_password === this.registerForm.value.password){
+      if(this.registerForm.value.confirmpassword === this.registerForm.value.password){
+
+        console.log("This works")
         return true;
       }
       else{
+        console.log("This doesn works")
         this.passwordMessage = "Passwords do not match";
         return false;
       }
@@ -102,7 +110,7 @@ export class RegisterComponent implements OnInit {
       // return console.log(this.myForm.value)
       if(this.passwordMatch()) {
         this.messages();
-        this.registerservice.(this.registerForm.value)
+        this.userService.register(this.registerForm.value)
         .subscribe(res => {
           alert("Successfully registered!!");
           window.location.href = "/login";

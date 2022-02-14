@@ -8,12 +8,12 @@
          <div class="col-lg-6 px-lg-4">
           <div class="card">
             <div class="card-header px-lg-5">
-              <div class="card-heading text-primary">Jassa Register</div>
+              <div class="card-heading text-primary">Attendance Register</div>
             </div>
             <div class="card-body p-lg-5">
-              <h3 class="mb-4">Get started with Jassa</h3>
-              <p class="text-muted text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
-              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+              <!-- <h3 class="mb-4">Get started with Jassa</h3> -->
+              <!-- <p class="text-muted text-sm mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p> -->
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" ngNativeValidate>
 
                 <div class="form-floating mb-3">
                   <input id="fullName"
@@ -37,7 +37,7 @@
                     placeholder="email" 
                     formControlName="email"
                     class="form-control" 
-                    [ngClass]="{ 'is-invalid': submitted && registerValidation.email.errors || registerValidation.email.errors}" />
+                    [ngClass]="{ 'is-invalid': submitted && registerValidation.email.errors }" />
                     <div *ngIf="submitted && registerValidation.email.errors" class="invalid-feedback">
                        <div *ngIf="submitted && registerValidation.email.errors">Email is required</div>
                        <div *ngIf="registerValidation.email.errors.email">Email must be a valid email address</div>
@@ -70,13 +70,17 @@
                     <label for="floatingPassword">Password</label>
                   </div>
 
+                 
+
 
                   <div class="form-floating mb-3">
-                    <input id="floatingPassword" type="confirmpassword" placeholder="confirmpassword" formControlName="confirmpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerValidation.confirmpassword.errors }" />
+                    <input id="confirmpassword" type="password" placeholder="confirmpassword" formControlName="confirmpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerValidation.confirmpassword.errors }" />
                     <div *ngIf="submitted && registerValidation.confirmpassword.errors" class="invalid-feedback">
-                          <div *ngIf="registerValidation.password.errors.required">Password is required</div>
+                          <div *ngIf="registerValidation.confirmpassword.errors.required"></div>
+                          <span class="details" *ngIf="!fieldsWithData()">{{message}}</span>
+                          <span class="details" *ngIf="!passwordMatch()" >{{passwordMessage}}</span>
                     </div>
-                    <label for="floatingPassword">Password</label>
+                    <label for="confirmpassword">Confim Password</label>
                   </div>
 
                 
@@ -86,7 +90,7 @@
                 
             
 
-                <button class="btn btn-primary" id="regidter" type="submit" name="registerSubmit">Register</button>
+                <button class="btn btn-primary" id="regidter" type="submit" [disabled]="!passwordMatch()" name="registerSubmit">Register</button>
               </form>
 
             </div>
@@ -94,8 +98,8 @@
           </div>
         </div>
        <div class="col-lg-6 col-xl-5 ms-xl-auto px-lg-4 text-center text-primary"><img class="img-fluid mb-4 mt-4" width="200" src="https://images.unsplash.com/19/clock.JPG?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1765&q=80" alt="" style="transform: rotate(10deg)">
-          <h1 class="mb-4">sfzdghgh<br class="d-none d-lg-inline">frtht</h1>
-          <p class="lead text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>
+          <h1 class="mb-4"> REGISTER<br class="d-none d-lg-inline">Why not?</h1>
+          <p class="lead text-muted">Already Registered? Click <a routerLink='/login'><span class="details">here</span></a> to log in</p>
         </div>
       </div>
     </div>
