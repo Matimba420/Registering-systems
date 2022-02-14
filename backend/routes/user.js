@@ -12,11 +12,11 @@ router.post('/login', userController.logIn)
 /**
  * delete user by emp_id
  */
-router.delete('/:id', userController.removeOne)
+// router.delete('/:id', userController.removeOne)
 
-/**
- * update a user by emp_id
- */
-router.put('/:id', userController.update)
+// /**
+//  * update a user by emp_id
+//  */
+// router.put('/:id', userController.update)
 
 module.exports = router
