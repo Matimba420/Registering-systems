@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { AlertController } from '@ionic/angular';
+import { NavComponent } from '../nav/nav.component';
 
 @Component({
   selector: 'app-login',

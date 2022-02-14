@@ -13,6 +13,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import  {HttpClientModule} from '@angular/common/http'
 
 // import { RegisterComponent } from 'src/components/register/register.component';
+import { NavComponent } from 'src/app/components/nav/nav.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import  {HttpClientModule} from '@angular/common/http'
   declarations: [
     RegisterPage,
     LoginComponent,
+    NavComponent
     // RegisterComponent
   ]
 })
