@@ -9,6 +9,7 @@ import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
+import { NavComponent } from 'src/app/components/nav/nav.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { RegisterComponent } from 'src/app/components/register/register.componen
   declarations: [
     LoginPage,
   LoginComponent,
-  RegisterComponent
+  RegisterComponent,
+  NavComponent
 
 ]
 })
