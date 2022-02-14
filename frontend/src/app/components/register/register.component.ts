@@ -12,6 +12,10 @@ import { OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
+  message: any = '';
+  isMessage: boolean = false;
+  passwordMessage: any = '';
+  password_matched: boolean = false;
   submitted = false;
   constructor( private registerservice: RegisterService, private formBuilder: FormBuilder, public alertController: AlertController){}
   //Add user form actions
@@ -62,6 +66,55 @@ export class RegisterComponent implements OnInit {
       empno: ['', [Validators.required,]],
       password: ['', [Validators.required]]
       });
+    }
+
+    passwordMatch(): boolean {
+      if(this.registerForm.value.confirm_password === this.registerForm.value.password){
+        return true;
+      }
+      else{
+        this.passwordMessage = "Passwords do not match";
+        return false;
+      }
+    }
+    fieldsWithData(): boolean{
+      if((this.registerForm.value.fullName && this.registerForm.value.email) && (this.registerForm.value.password && this.registerForm.value.confirm_password) != "" ){
+        // this.messages();
+        return true;
+      }
+      else{
+        return false;
+      }
+      
+    }
+  
+    messages(): void {
+      if(this.fieldsWithData()){
+        this.message = "";
+      }
+      else{
+        this.message = "Fields cannot be empty"
+      }
+       
+    }
+  
+    submit(): void{
+      // return console.log(this.myForm.value)
+      if(this.passwordMatch()) {
+        this.messages();
+        this.registerservice.(this.registerForm.value)
+        .subscribe(res => {
+          alert("Successfully registered!!");
+          window.location.href = "/login";
+            sessionStorage.setItem("user_id", JSON.stringify(res));
+          console.log(res)
+        }, err =>{
+          alert(err+ "Login failed check console");
+          
+        });  
+      }
+     
+      
     }
     
   

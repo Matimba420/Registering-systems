@@ -69,6 +69,17 @@
                     </div>
                     <label for="floatingPassword">Password</label>
                   </div>
+
+
+                  <div class="form-floating mb-3">
+                    <input id="floatingPassword" type="confirmpassword" placeholder="confirmpassword" formControlName="confirmpassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && registerValidation.confirmpassword.errors }" />
+                    <div *ngIf="submitted && registerValidation.confirmpassword.errors" class="invalid-feedback">
+                          <div *ngIf="registerValidation.password.errors.required">Password is required</div>
+                    </div>
+                    <label for="floatingPassword">Password</label>
+                  </div>
+
+                
                  
 
             
