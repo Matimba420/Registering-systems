@@ -21,7 +21,7 @@ import { LandingPageComponent } from 'src/app/components/landing-page/landing-pa
   ],
   declarations: [
     LandingPagePage, 
-    LoginComponent,
+    // LoginComponent,
     RegisterComponent,
     NavComponent,
     LandingPageComponent]

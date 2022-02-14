@@ -10,6 +10,7 @@ import { NavComponent } from '../nav/nav.component';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+  
   loginForm: FormGroup;
   message: any = '';
   isMessage: boolean = false;

@@ -19,14 +19,12 @@ import { NavComponent } from 'src/app/components/nav/nav.component';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
-
   ],
   declarations: [
-    LoginPage,
-  LoginComponent,
+  LoginPage,
+  // LoginComponent,
   RegisterComponent,
   NavComponent
-
 ]
 })
 export class LoginPageModule {}
