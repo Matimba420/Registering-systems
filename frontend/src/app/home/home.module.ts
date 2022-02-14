@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
+import {LandingPageComponent } from '../components/landing-page/landing-page.component'
+import { NavComponent } from '../components/nav/nav.component';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
@@ -14,6 +16,6 @@ import { HomePageRoutingModule } from './home-routing.module';
     IonicModule,
     HomePageRoutingModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, NavComponent, LandingPageComponent]
 })
 export class HomePageModule {}

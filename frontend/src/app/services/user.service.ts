@@ -16,7 +16,7 @@ constructor(private http:HttpClient) { }
     }
 
     register(employee: Employee) {
-        return this.http.post('http://localhost:3100/register', employee);
+        return this.http.post('http://localhost:3100/user/register', employee);
     }
 
     signin(employee: Employee) {
