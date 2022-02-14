@@ -1,4 +1,4 @@
-export interface Register {
+export interface Employee {
     fullName: string;
     email :string;
     empno :string;
