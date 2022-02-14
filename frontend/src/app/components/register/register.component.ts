@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { CrudService } from '../se/register.service'; 
-import { RegisterService } from 'src/app/services/register.service';
+import { UserService } from '../../services/user.service'
 import { AlertController } from '@ionic/angular';
 import { OnInit } from '@angular/core';
 
@@ -13,7 +13,7 @@ import { OnInit } from '@angular/core';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
-  constructor( private registerservice: RegisterService, private formBuilder: FormBuilder, public alertController: AlertController){}
+  constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController){}
   //Add user form actions
   async presentAlert() {
     const alert = await this.alertController.create({
