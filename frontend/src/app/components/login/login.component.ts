@@ -94,14 +94,14 @@ export class LoginComponent implements OnInit {
       // return console.log(this.myForm.value)
       if(this.fieldsWithData()) {
         this.messages();
-        this.userService.register(this.loginForm.value)
+        this.userService.login(this.loginForm.value)
         .subscribe(res => {
-          alert("Successfully registered!!");
-          window.location.href = "/login";
-            sessionStorage.setItem("user_id", JSON.stringify(res));
+          alert("Successfully logged!!");
+          window.location.href = "/home";
+            sessionStorage.setItem("emp_id", JSON.stringify(res));
           console.log(res)
         }, err =>{
-          // alert(err+ "Login failed check console");
+          alert(err+ "Login failed check console");
           
         });  
       }

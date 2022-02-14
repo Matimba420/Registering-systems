@@ -8,7 +8,19 @@ import { Component, OnInit } from '@angular/core';
 export class NavComponent implements OnInit {
 
   constructor() { }
+  sessionTrue: boolean = false;
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  if(sessionStorage.getItem("emp_id")) {
+    this.sessionTrue = true;
+  }
+}
+
+clearSession(): void {
+  sessionStorage.removeItem("emp_id");
+  alert("Logged out!");
+  window.location.href = "/";
+}
 
 }

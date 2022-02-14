@@ -20,6 +20,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
   },
+  {
+    path: 'landingpage',
+    loadChildren: () => import('./pages/landing-page/landing-page.module').then( m => m.LandingPagePageModule)
+  }
 ];
 
 @NgModule({

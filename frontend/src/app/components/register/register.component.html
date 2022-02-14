@@ -16,15 +16,15 @@
               <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" ngNativeValidate>
 
                 <div class="form-floating mb-3">
-                  <input id="fullName"
+                  <input id="name"
                    type="text"
                     placeholder="Full Name" 
-                    formControlName="fullName"
+                    formControlName="name"
                     class="form-control" 
-                    [ngClass]="{ 'is-invalid': submitted && registerValidation.fullName.errors }" />
+                    [ngClass]="{ 'is-invalid': submitted && registerValidation.name.errors }" />
 
-                  <div *ngIf="submitted && registerValidation.fullName.errors" class="invalid-feedback">
-                        <div *ngIf="registerValidation.fullName.errors.required">Name is required</div>
+                  <div *ngIf="submitted && registerValidation.name.errors" class="invalid-feedback">
+                        <div *ngIf="registerValidation.name.errors.required">Name is required</div>
                   </div>
                   
              
@@ -48,15 +48,15 @@
 
 
                   <div class="form-floating mb-3">
-                    <input id="empno"
+                    <input id="emp_id"
                      type="text"
                       placeholder="empno" 
-                      formControlName="empno"
+                      formControlName="emp_id"
                       class="form-control" 
-                      [ngClass]="{ 'is-invalid': submitted && registerValidation.empno.errors }" />
+                      [ngClass]="{ 'is-invalid': submitted && registerValidation.emp_id.errors }" />
   
-                    <div *ngIf="submitted && registerValidation.empno.errors" class="invalid-feedback">
-                          <div *ngIf="registerValidation.empno.errors.required">Employee number is required</div>
+                    <div *ngIf="submitted && registerValidation.emp_id.errors" class="invalid-feedback">
+                          <div *ngIf="registerValidation.emp_id.errors.required">Employee number is required</div>
                     </div>
                     
                     <label for="username">Employee Number</label>

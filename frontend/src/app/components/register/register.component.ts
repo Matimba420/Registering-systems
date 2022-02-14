@@ -65,9 +65,9 @@ export class RegisterComponent implements OnInit {
       // this.passwordMatch();
       //Add User form validations
       this.registerForm = this.formBuilder.group({
-      fullName: ['', [Validators.required]],
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      empno: ['', [Validators.required,]],
+      emp_id: ['', [Validators.required,]],
       password: ['', [Validators.required]],
       confirmpassword: ['', [Validators.required]]
       });
@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
       }
     }
     fieldsWithData(): boolean{
-      if((this.registerForm.value.fullName && this.registerForm.value.email) && (this.registerForm.value.password && this.registerForm.value.confirm_password) != "" ){
+      if((this.registerForm.value.name && this.registerForm.value.email) && (this.registerForm.value.password && this.registerForm.value.confirm_password) != "" ){
         // this.messages();
         return true;
       }
@@ -114,7 +114,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(res => {
           alert("Successfully registered!!");
           window.location.href = "/login";
-            sessionStorage.setItem("user_id", JSON.stringify(res));
+            sessionStorage.setItem("emp_id", JSON.stringify(res));
           console.log(res)
         }, err =>{
           alert(err+ "Login failed check console");

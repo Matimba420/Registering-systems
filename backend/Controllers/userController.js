@@ -5,8 +5,8 @@ const pool = seed;
 
 exports.register = (req, res) => {
     let query = {
-        text: 'INSERT INTO employees (emp_id, name, email, password) VALUES ($1, $2, $3, $4) RETURNING (emp_id, name, email)',
-        value: [req.body.emp_id, req.body.name, req.body.email, req.body.password]
+        text: 'INSERT INTO employees (name, email, emp_id,  password) VALUES ($1, $2, $3, $4) RETURNING (emp_id, name, email)',
+        value: [req.body.name, req.body.email, req.body.emp_id, req.body.password]
     }
     pool.query(query.text, query.value)
         .then(data => {
@@ -20,7 +20,7 @@ exports.register = (req, res) => {
 },
 exports.logIn = (req, res) => {
     let query = {
-        text: 'SELECT email, password FROM employees WHERE email = $1 AND password = $2 RETURNING (name, email)',
+        text: 'SELECT name, email, password FROM employees WHERE email = $1 AND password = $2',
         value: [req.body.email, req.body.password]
     }
     pool.query(query.text, query.value)
