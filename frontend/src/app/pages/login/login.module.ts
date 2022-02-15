@@ -22,7 +22,7 @@ import { NavComponent } from 'src/app/components/nav/nav.component';
   ],
   declarations: [
   LoginPage,
-  // LoginComponent,
+  LoginComponent,
   RegisterComponent,
   NavComponent
 ]
