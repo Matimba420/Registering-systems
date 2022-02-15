@@ -1,3 +1,23 @@
 <p>
   landing-page works!
 </p>
+
+<div class="container-fluid">
+  <h2>Attendance History</h2>
+   <li class="mb-3 me-0" *ngFor="let item of comments">
+      <div class="row align-items-start comment-list-container">
+        <div class="col-1"  style="max-width: 80px;">
+          <img src="{{item.img}}" class="img-fluid rounded-3" alt="">
+        </div>
+        <div class="col">
+          <div class="small">
+              <span class="text-primary m-0">{{item.name}}</span>  |  <span class="text-muted">{{item.created_at}}</span> 
+          </div>
+          <p>
+            {{item.message}}
+          </p>
+        </div>
+      </div>
+      <hr class="my-1">
+    </li>
+</div>
