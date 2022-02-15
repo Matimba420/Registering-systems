@@ -1,0 +1,23 @@
+.container-fluid {
+    max-height: 80vh;
+    max-width: 95%;
+    border: transparent;
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+img { 
+    border: transparent;
+    border-radius: 10px;
+    background-color: black;
+    // opacity: 0.8;
+    
+}
+
+button {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
