@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CarouselComponent implements OnInit {
 
-  items: any
+  scrollDown() {
+    const mybutton = document.getElementById("details");
+    mybutton.scrollIntoView({behavior: 'smooth'})
+  }
+  
 
   constructor() { }
 
