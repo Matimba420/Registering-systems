@@ -10,6 +10,7 @@ import { LoginPage } from './login.page';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { NavComponent } from 'src/app/components/nav/nav.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { NavComponent } from 'src/app/components/nav/nav.component';
   LoginPage,
   LoginComponent,
   RegisterComponent,
-  NavComponent
+  NavComponent,
+  FooterComponent
 ]
 })
 export class LoginPageModule {}
