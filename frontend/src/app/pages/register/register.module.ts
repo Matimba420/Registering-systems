@@ -27,7 +27,8 @@ import { NavComponent } from 'src/app/components/nav/nav.component';
   declarations: [
     RegisterPage,
     LoginComponent,
-    NavComponent
+    NavComponent,
+    FooterComponent
     // RegisterComponent
   ]
 })
