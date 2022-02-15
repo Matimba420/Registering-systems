@@ -98,15 +98,17 @@ export class LoginComponent implements OnInit {
         this.userService.login(this.loginForm.value)
         .subscribe(res => {
           alert("Successfully logged!!");
-          window.location.href = "/home";
-            sessionStorage.setItem("emp_id", JSON.stringify(res));
-          console.log(res)
+            // sessionStorage.setItem("emp_id", JSON.stringify(res));
+            localStorage.setItem("emp_id", JSON.stringify(res));
+          console.log(res);
+          window.location.href = "/landingpage";
         }, err =>{
           alert(err+ "Login failed check console");
           
         });  
       }
      
+      
       
     }
     
