@@ -1,21 +1,10 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
-
+<div class="container-fluid">
+    <div class="container-fluid" style="max-height: 100%;">
+        <app-nav></app-nav>
+        <app-carousel></app-carousel>
+        <p class= "mt-5 mb-6 text-center" id="intro">End-to-end Check-in solution for universities, schools, and professional training.</p>
+    </div>
+    <div class="mt-4"><app-application-details></app-application-details></div>
+    <div class="container-fluid"><app-footer></app-footer></div>
+    
+</div>

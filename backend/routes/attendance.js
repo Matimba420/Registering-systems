@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const commentContlroller = require('../controllers/attendanceController');
+const attendanceController = require('../controllers/attendanceController');
 
-router.get('/', attendanceController.getAll)
+router.get('/getAll', attendanceController.getAll);
+router.get('/getById', attendanceController.getAllOneId);
+router.get('/attend', attendanceController.attend)
 
 module.exports = router
