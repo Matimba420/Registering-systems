@@ -1,30 +1,29 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
+import { LandingPagePageRoutingModule } from './landing-page-routing.module';
 
-import { LoginPage } from './login.page';
+import { LandingPagePage } from './landing-page.page';
 import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { NavComponent } from 'src/app/components/nav/nav.component';
-
+import { LandingPageComponent } from 'src/app/components/landing-page/landing-page.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule,
-    ReactiveFormsModule,
+    LandingPagePageRoutingModule
   ],
   declarations: [
-  LoginPage,
-  LoginComponent,
-  RegisterComponent,
-  NavComponent
-]
+    LandingPagePage, 
+    // LoginComponent,
+    RegisterComponent,
+    NavComponent,
+    LandingPageComponent]
 })
-export class LoginPageModule {}
+export class LandingPagePageModule {}
