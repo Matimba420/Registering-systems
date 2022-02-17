@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService} from '../../services/attendance.service';
+import { ReactiveFormsModule } from '@angular/forms'
 @Component({
   selector: 'app-admin-landing',
   templateUrl: './admin-landing.component.html',
