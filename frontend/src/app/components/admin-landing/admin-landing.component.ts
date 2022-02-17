@@ -12,14 +12,17 @@ export class AdminLandingComponent implements OnInit {
 
   attendResponse: any = []
   ngOnInit() {
-    this.getAll()
+    this.getAll();
+    
   }
+  
   getAll(): void {
     this.attendanceService.getAll().subscribe(res =>{
       console.log(res);
       this.attendResponse = res;
-    },err=>{
-      alert(err+" Something went wrong retrieving data")
-    });
+    },err =>{
+      alert(err+" Something went wrong while retrieving data")
+    }
+    );
   }
 }
