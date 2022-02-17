@@ -23,6 +23,10 @@ const routes: Routes = [
   {
     path: 'landingpage',
     loadChildren: () => import('./pages/landing-page/landing-page.module').then( m => m.LandingPagePageModule)
+  },
+  {
+    path: 'admins',
+    loadChildren: () => import('./pages/admins/admins.module').then( m => m.AdminsPageModule)
   }
 ];
 
