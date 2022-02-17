@@ -1,3 +1,48 @@
-<p>
-  admin-landing works!
-</p>
+
+<ion-header [translucent]="true">
+  <!-- <ion-toolbar color="primary">
+    <ion-title>
+      Ionic Table using Ionic grid component
+    </ion-title>
+  </ion-toolbar> -->
+  <app-nav></app-nav>
+</ion-header>
+
+<ion-content class="ion-margin">
+
+<br>
+  <!-- <h1>{{admin.name}}</h1> -->
+  <h1>Admin Name Here</h1>
+<!--SEARCH-->
+<ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let attendance of attendResponse$ | async">
+      <ion-label>{{ attendance.name }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+
+
+  <ion-grid class="ion-margin">
+    <ion-row>
+      <!-- <ion-col>S.No</ion-col> -->
+      <ion-col>FullName</ion-col>
+      <ion-col>Temperature</ion-col>
+      <ion-col>Timestamp</ion-col>
+      <!-- <ion-col>Timestamp</ion-col> -->
+    </ion-row>
+    <ion-row *ngFor="let attendance of attendResponse; index as i">
+      <!-- <ion-col>{{ i + 1 }}</ion-col> -->
+      <ion-col>{{ attendance.name }}</ion-col>
+      <ion-col>{{ attendance.temp }}</ion-col>
+      <ion-col>{{ attendance.created_at }}</ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item lines="none">
+    <!-- <ion-button color="primary" size="small" slot="end" routerLink="/material">
+      Material Design Table
+    </ion-button> -->
+  </ion-item>
+</ion-content>

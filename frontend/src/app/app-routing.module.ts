@@ -25,10 +25,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/landing-page/landing-page.module').then( m => m.LandingPagePageModule)
   },
   {
-    path: 'admin',
-    loadChildren: () => import('./pages/admin/admin.module').then( m => m.AdminPageModule)
-  },
-  {
     path: 'admins',
     loadChildren: () => import('./pages/admins/admins.module').then( m => m.AdminsPageModule)
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+ 
 
 @Component({
   selector: 'app-admins',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminsPage implements OnInit {
 
+
+  attendResponse: any = [];
   constructor() { }
 
   ngOnInit() {
+ 
   }
+
+
+
+
 
 }

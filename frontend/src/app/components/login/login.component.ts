@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   // }
   get registerValidation() { return this.loginFormEmp.controls; }
   get registerValidationAdmin() { return this.loginFormEmp.controls; }
-  
+
   onSubmit() {
     this.submitEmp();
   
@@ -152,13 +152,13 @@ export class LoginComponent implements OnInit {
       // return console.log(this.myForm.value)
       if(this.fieldsWithDataAdmin()) {
         // this.messages();
-        this.userService.login(this.loginFormAdmin.value)
+        this.userService.loginAdmin(this.loginFormAdmin.value)
         .subscribe(res => {
           alert("Successfully logged!!");
             // sessionStorage.setItem("emp_id", JSON.stringify(res));
             localStorage.setItem("emp_id", JSON.stringify(res));
           console.log(res);
-          window.location.href = "/landingpage";
+          window.location.href = "/admins";
         }, err =>{
           alert(err+ "Login failed check console");
           

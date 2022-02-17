@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { AttendanceService} from '../../services/attendance.service';
 @Component({
   selector: 'app-admin-landing',
   templateUrl: './admin-landing.component.html',
@@ -7,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private attendanceService:AttendanceService) { }
 
-  ngOnInit() {}
-
+  attendResponse: any = []
+  ngOnInit() {
+    this.getAll()
+  }
+  getAll(): void {
+    this.attendanceService.getAll().subscribe(res =>{
+      console.log(res);
+      this.attendResponse = res;
+    },err=>{
+      alert(err+" Something went wrong retrieving data")
+    });
+  }
 }
