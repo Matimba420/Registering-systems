@@ -17,6 +17,7 @@ export class AdminLandingComponent implements OnInit {
     this.getAll();
 
   }
+  
   getAll(): void {
     this.attendanceService.getAll().subscribe(res =>{
       console.log(res);
