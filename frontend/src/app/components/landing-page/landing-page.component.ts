@@ -11,16 +11,17 @@ export class LandingPageComponent implements OnInit {
   constructor(private attendanceService: AttendanceService) { }
 
   allEmployees: any;
+
   ngOnInit() {
     this.getAll();
   }
-
+  
   getAll() {
     this.attendanceService.getAll().
     subscribe(res => {
-      if(res.data){
-        console.log(res.data)
-      this.allEmployees = res.data;
+      if(res){
+        console.log(res)
+      this.allEmployees = res;
       }
       else
       {
