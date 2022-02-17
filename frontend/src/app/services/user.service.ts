@@ -26,4 +26,8 @@ constructor(private http:HttpClient) { }
       return this.http.post(`${baseURL}/user/login`, employee);
   }
 
+  loginAdmin(employee: Employee) {
+    return this.http.post(`${baseURL}/user/login`, employee);
+}
+
 }
