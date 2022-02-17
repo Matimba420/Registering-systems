@@ -22,4 +22,16 @@ ion-grid {
     ion-row:last-child {
       border-bottom: 1px solid black;
     }
+  
   }
+
+.row {
+  margin: 1rem;
+  col {
+    background: brown;
+
+    ino-input {
+      --ion-text-color: #000;
+    }
+  }
+}
