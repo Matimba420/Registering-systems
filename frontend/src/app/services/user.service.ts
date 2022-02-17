@@ -19,11 +19,11 @@ constructor(private http:HttpClient) { }
     }
 
     register(employee: Employee) {
-        return this.http.post(`${baseURL}/register`, employee);
+        return this.http.post(`${baseURL}/user/register`, employee);
     }
 
     login(employee: Employee) {
-      return this.http.post(`${baseURL}/login`, employee);
+      return this.http.post(`${baseURL}/user/login`, employee);
   }
 
 }
