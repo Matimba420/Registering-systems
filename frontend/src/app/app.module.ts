@@ -9,12 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './components/login/login.component';
+// import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 
 @NgModule({
-  declarations: [AppComponent,LoginComponent],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule,

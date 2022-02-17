@@ -14,13 +14,13 @@
   <!-- <h1>{{admin.name}}</h1> -->
   <h1>Admin Name Here</h1>
 <!--SEARCH-->
-<ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar>
+<!-- <ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar>
 
   <ion-list lines="none">
     <ion-item *ngFor="let attendance of attendResponse$ | async">
       <ion-label>{{ attendance.name }}</ion-label>
     </ion-item>
-  </ion-list>
+  </ion-list> -->
 
 
 
@@ -30,6 +30,7 @@
       <ion-col>FullName</ion-col>
       <ion-col>Temperature</ion-col>
       <ion-col>Timestamp</ion-col>
+      <ion-col>View History</ion-col>
       <!-- <ion-col>Timestamp</ion-col> -->
     </ion-row>
     <ion-row *ngFor="let attendance of attendResponse; index as i">
@@ -37,6 +38,7 @@
       <ion-col>{{ attendance.name }}</ion-col>
       <ion-col>{{ attendance.temp }}</ion-col>
       <ion-col>{{ attendance.created_at }}</ion-col>
+      <ion-col><a href="**">View History</a></ion-col>
     </ion-row>
   </ion-grid>
 

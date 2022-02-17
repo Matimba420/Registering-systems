@@ -13,26 +13,14 @@ export class LoginComponent implements OnInit {
   
   loginFormEmp: FormGroup;
   loginFormAdmin: FormGroup;
-  // message: any = '';
-  // isMessage: boolean = false;
-  // passwordMessage: any = '';
-  // password_matched: boolean = false;
+  
   submitted = false;
   constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController){}
-  //Add user form actions
-  // async presentAlert() {
-  //   const alert = await this.alertController.create({
-  //     header: 'Great!!',
-  //     message: 'User has been registered.',
-  //     buttons: ['OK']
-  //   });
-  //   await alert.present();
-    
-  // }
+ 
   get registerValidation() { return this.loginFormEmp.controls; }
   get registerValidationAdmin() { return this.loginFormEmp.controls; }
 
-  onSubmit() {
+  onSubmitEmp() {
     this.submitEmp();
   
      this.submitted = true;
@@ -107,7 +95,7 @@ export class LoginComponent implements OnInit {
     }
 
     fieldsWithDataAdmin(): boolean{
-      if(this.loginFormAdmin.value.email && this.loginFormAdmin.value.password != "" ){
+      if(this.loginFormAdmin.value.emailAdmin && this.loginFormAdmin.value.passwordAdmin != "" ){
         // this.messages();
         return true;
       }
@@ -116,18 +104,6 @@ export class LoginComponent implements OnInit {
       }
       
     }
-  
-    // messages(): void {
-    //   if(this.fieldsWithData()){
-    //     this.message = "";
-    //   }
-    //   else{
-    //     this.message = "Fields cannot be empty"
-    //   }
-       
-    // }
-
-
   //EMPLOYEE
     submitEmp(): void{
       // return console.log(this.myForm.value)
