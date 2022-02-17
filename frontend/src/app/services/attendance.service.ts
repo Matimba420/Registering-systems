@@ -11,8 +11,8 @@ export class AttendanceService {
 
   constructor(private http:HttpClient) { }
 
-  getAllOneId(employee : Employee) {
-    return this.http.post('http://localhost:3100/attendance/getById', employee)
+  getAllOneId(emp_id: String) {
+    return this.http.get('http://localhost:3100/attendance/getAllOneId/'+emp_id)
   }
   getAll(): Observable<any>{
     return this.http.get<Employee[]>(`${environment.backend}/attendance/getAll`);

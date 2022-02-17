@@ -10,19 +10,23 @@ export class AdminLandingComponent implements OnInit {
 
   constructor(private attendanceService:AttendanceService) { }
 
-  attendResponse: any = []
+  attendResponse: any = [];
+  admin_name: any;
+  name: any;
   ngOnInit() {
     this.getAll();
-    
+
   }
   
   getAll(): void {
     this.attendanceService.getAll().subscribe(res =>{
       console.log(res);
       this.attendResponse = res;
-    },err =>{
-      alert(err+" Something went wrong while retrieving data")
-    }
-    );
+    },err=>{
+      alert(err+" Something went wrong retrieving data")
+    });
+
+    this.admin_name = JSON.parse(localStorage.getItem("admin_id"));
+    this.name = this.admin_name[0].admin_name;
   }
 }

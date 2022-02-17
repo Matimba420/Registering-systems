@@ -20,7 +20,7 @@ exports.register = (req, res) => {
 },
 exports.logIn = (req, res) => {
     let query = {
-        text: 'SELECT name, email, password FROM employees WHERE email = $1 AND password = $2',
+        text: 'SELECT emp_id, name, email, password FROM employees WHERE email = $1 AND password = $2',
         value: [req.body.email, req.body.password]
     }
     pool.query(query.text, query.value)
