@@ -131,8 +131,8 @@ export class LoginComponent implements OnInit {
         this.userService.loginAdmin(this.loginFormAdmin.value)
         .subscribe(res => {
           alert("Successfully logged!!");
-            // sessionStorage.setItem("emp_id", JSON.stringify(res));
-            localStorage.setItem("emp_id", JSON.stringify(res));
+            sessionStorage.setItem("admin_id", JSON.stringify(res));
+            localStorage.setItem("admin_id", JSON.stringify(res));
           console.log(res);
           window.location.href = "/admins";
         }, err =>{
