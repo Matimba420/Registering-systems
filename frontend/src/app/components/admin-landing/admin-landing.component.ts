@@ -12,7 +12,8 @@ export class AdminLandingComponent implements OnInit {
 
   attendResponse: any = []
   ngOnInit() {
-    this.getAll()
+    this.getAll();
+    
   }
   getAll(): void {
     this.attendanceService.getAll().subscribe(res =>{

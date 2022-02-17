@@ -20,54 +20,6 @@ export class LoginComponent implements OnInit {
   get registerValidation() { return this.loginFormEmp.controls; }
   get registerValidationAdmin() { return this.loginFormEmp.controls; }
 
-  onSubmitEmp() {
-    this.submitEmp();
-  
-     this.submitted = true;
-    // stop here if form is invalid
-    if (this.loginFormEmp.invalid) {
-        return;
-    }
-    //True if all the fields are filled
-    if(this.submitted)
-    {
-      
-      // Initialize Params Object
-      var myFormData = new FormData();
-     
-        console.log("form ", this.loginFormEmp.value); 
-
-        
-    };
-
-    
-  
-  }
-
-  onSubmitAdmin() {
-    this.submitAdmin();
-  
-     this.submitted = true;
-    // stop here if form is invalid
-    if (this.loginFormEmp.invalid) {
-        return;
-    }
-    //True if all the fields are filled
-    if(this.submitted)
-    {
-      
-      // Initialize Params Object
-      var myFormData = new FormData();
-     
-        console.log("form ", this.loginFormEmp.value);
-        
-        
-
-        
-    }
-  
-  }
-
     ngOnInit() {
 
       // this.passwordMatch();
@@ -83,6 +35,51 @@ export class LoginComponent implements OnInit {
         });
     }
 
+    onSubmitEmp() {
+      this.submitEmp();
+    
+       this.submitted = true;
+      // stop here if form is invalid
+      if (this.loginFormEmp.invalid) {
+          return;
+      }
+      //True if all the fields are filled
+      if(this.submitted)
+      {
+        
+        // Initialize Params Object
+        var myFormData = new FormData();
+       
+          console.log("form ", this.loginFormEmp.value); 
+  
+          
+      };
+  
+      
+    
+    }
+  
+    onSubmitAdmin() {
+      this.submitAdmin();
+    
+       this.submitted = true;
+      // stop here if form is invalid
+      if (this.loginFormEmp.invalid) {
+          return;
+      }
+      //True if all the fields are filled
+      if(this.submitted)
+      {
+        
+        // Initialize Params Object
+        var myFormData = new FormData();
+       
+          console.log("form ", this.loginFormEmp.value);
+          
+      }
+    
+    }
+
     fieldsWithDataEmp(): boolean{
       if(this.loginFormEmp.value.email && this.loginFormEmp.value.password != "" ){
         // this.messages();
@@ -96,7 +93,6 @@ export class LoginComponent implements OnInit {
 
     fieldsWithDataAdmin(): boolean{
       if(this.loginFormAdmin.value.emailAdmin && this.loginFormAdmin.value.passwordAdmin != "" ){
-        // this.messages();
         return true;
       }
       else{
@@ -109,13 +105,17 @@ export class LoginComponent implements OnInit {
       // return console.log(this.myForm.value)
       if(this.fieldsWithDataEmp()) {
         // this.messages();
+        console.log(this.loginFormEmp.value);
         this.userService.login(this.loginFormEmp.value)
         .subscribe(res => {
-          alert("Successfully logged!!");
+          if(res.toString().length > 0){
+            console.log(res)
+            alert("Successfully logged!!");
             sessionStorage.setItem("emp_id", JSON.stringify(res));
             localStorage.setItem("emp_id", JSON.stringify(res));
           console.log(res);
           window.location.href = "/landingpage";
+          }
         }, err =>{
           alert(err+ "Login failed check console");
           
@@ -128,13 +128,16 @@ export class LoginComponent implements OnInit {
       // return console.log(this.myForm.value)
       if(this.fieldsWithDataAdmin()) {
         // this.messages();
-        this.userService.loginAdmin(this.loginFormAdmin.value)
+        this.userService.logInAdmin(this.loginFormAdmin.value)
         .subscribe(res => {
-          alert("Successfully logged!!");
+          if(res) {
+            console.log(this.loginFormAdmin.value)
+            alert("Successfully logged!!");
             sessionStorage.setItem("admin_id", JSON.stringify(res));
             localStorage.setItem("admin_id", JSON.stringify(res));
           console.log(res);
           window.location.href = "/admins";
+          }
         }, err =>{
           alert(err+ "Login failed check console");
           

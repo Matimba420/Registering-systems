@@ -21,7 +21,7 @@ VALUES
 DROP TABLE IF EXISTS attendance CASCADE;
 CREATE TABLE attendance(
     attendance_id SERIAL PRIMARY KEY,
-    emp_id VARCHAR(5) UNIQUE NOT NULL,
+    emp_id INTEGER UNIQUE NOT NULL,
     temp VARCHAR(5) NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
@@ -44,4 +44,5 @@ VALUES
 
 INSERT INTO attendance(emp_id, temp)
 VALUES
-('12346', '33.2');
+('12345', '34.2');
+
