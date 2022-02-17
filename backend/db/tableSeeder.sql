@@ -47,7 +47,12 @@ VALUES
 
 INSERT INTO attendance(emp_id, temp)
 VALUES
+('593', '36.7')
 ('12347','36.2'),
 ('12348','35.4'),
 ('12349','33.3');
+
+
+select attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id
+SELECT attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id WHERE emp_id ='12346'
 

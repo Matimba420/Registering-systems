@@ -7,29 +7,28 @@ import {AttendanceService} from '../../services/attendance.service';
   styleUrls: ['./landing-page.component.scss'],
 })
 export class LandingPageComponent implements OnInit {
+  emp_name: any;
+  attendResponse: any;
+  id: any;
 
   constructor(private attendanceService: AttendanceService) { }
 
   allEmployees: any;
 
   ngOnInit() {
-    this.getAll();
+    this.getAllOneId();
   }
-  
-  getAll() {
-    this.attendanceService.getAll().
+
+  getAllOneId() {
+    this.emp_name = JSON.parse(sessionStorage.getItem("emp_id"));
+    this.id = this.emp_name[0].emp_id;
+    this.attendanceService.getAllOneId(this.id).
     subscribe(res => {
-      if(res){
-        console.log(res)
-      this.allEmployees = res;
-      }
-      else
-      {
-        console.log("error")
-      }
-      
+      console.log(res);
+      this.attendResponse = res;
     },err => {console.log(err);
-    });
+    }
+    );
   }
 
 }
