@@ -28,7 +28,8 @@ const pool = seed;
  * @param {*} res 
  */
  exports.getAll = (req, res) => {
-    let query = 'SELECT * FROM attendance RETURNING *';
+    let query = 'select * from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id ';
+    
     pool.query(query)
         .then(data => {
             console.log(data.rows);
@@ -51,10 +52,11 @@ const pool = seed;
     pool.query(query.body, query.value)
         .then(data => {
             console.log(data.rows);
-            return res.send(data.rows);
+            // return res.send(data.rows);
+            return res.send({data: data.rows});
         })
         .catch(err => {
             console.log(err);
-            res.send(err);
+            res.send({error:err});
         })
 }

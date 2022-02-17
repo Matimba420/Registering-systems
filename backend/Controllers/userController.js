@@ -26,7 +26,23 @@ exports.logIn = (req, res) => {
     pool.query(query.text, query.value)
         .then(data => {
             console.log(data.rows);
-            return res.send(data.rows);
+            return res.send({data: data.rows});
+        })
+        .catch(err => {
+            console.log(err);
+            res.send(err);
+        })
+}
+
+exports.logInAdmin = (req, res) => {
+    let query = {
+        text: 'SELECT admin_name, email, password FROM admin WHERE email = $1 AND password = $2',
+        value: [req.body.email, req.body.password]
+    }
+    pool.query(query.text, query.value)
+        .then(data => {
+            console.log(data.rows);
+            return res.send({data: data.rows});
         })
         .catch(err => {
             console.log(err);

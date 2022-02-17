@@ -31,6 +31,17 @@ DROP TABLE IF EXISTS admin CASCADE;
 CREATE TABLE admin(
     admin_id SERIAL PRIMARY KEY,
     admin_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
+    emp_id INTEGER UNIQUE NOT NULL,
     FOREIGN KEY(emp_id) REFERENCES employees (emp_id)
-)
+);
+
+INSERT INTO admin(admin_name, email, password, emp_id)
+VALUES
+('admin', 'admin@email.com', 'admin123', '12345');
+
+
+INSERT INTO attendance(emp_id, temp)
+VALUES
+('12346', '33.2');
