@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Register } from '../interfaces/employee';
+import { Employee } from '../interfaces/employee';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,23 +24,23 @@ userData:any;
 constructor(private http:HttpClient) { }
 
 //add new user    
-public adduser(userData)
-{
-  return this.http.post('http://localhost:3100/employees/register'
-, userData).subscribe((res: Response) => {
+// public adduser(userData)
+// {
+//   return this.http.post('http://localhost:3100/employees/register'
+// , userData).subscribe((res: Response) => {
  
-});
-}
+// });
+// }
 
     getAll() {
-        return this.http.get<Register[]>(`/users`);
+        return this.http.get<Employee[]>(`/users`);
     }
 
-    register(employee: Register) {
+    register(employee: Employee) {
         return this.http.post('http://localhost:3100/register', employee);
     }
 
-    signin(employee: Register) {
+    signin(employee: Employee) {
       return this.http.post('http://localhost:3100/signin', employee);
   }
 }
