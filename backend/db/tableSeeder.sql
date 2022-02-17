@@ -40,3 +40,8 @@ CREATE TABLE admin(
 INSERT INTO admin(admin_name, email, password, emp_id)
 VALUES
 ('admin', 'admin@email.com', 'admin123', '12345');
+
+
+INSERT INTO attendance(emp_id, temp)
+VALUES
+('12346', '33.2');

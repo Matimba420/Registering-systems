@@ -28,8 +28,8 @@ const pool = seed;
  * @param {*} res 
  */
  exports.getAll = (req, res) => {
-    let query = 'SELECT a.attendance_id, a.emp_id, a.temp, a.created_at, e.name FROM attendance a, employees e WHERE a.emp_id = e.emp_id';
-
+    let query = 'SELECT a.attendance_id, a.emp_id, a.temp, a.created_at, e.name FROM attendance a INNER JOIN employees e ON a.emp_id = e.emp_id';
+    
     pool.query(query)
         .then(data => {
             console.log(data.rows);
