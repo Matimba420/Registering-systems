@@ -12,13 +12,15 @@ export class NavComponent implements OnInit {
 
   ngOnInit() {
 
-  if(sessionStorage.getItem("emp_id")) {
+  if(sessionStorage.getItem("emp_id") || sessionStorage.getItem("admin_id")) {
     this.sessionTrue = true;
   }
 }
 
 clearSession(): void {
+  
   sessionStorage.removeItem("emp_id");
+  sessionStorage.removeItem("admin_id");
   alert("Logged out!");
   window.location.href = "/";
 }

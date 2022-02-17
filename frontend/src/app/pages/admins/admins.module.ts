@@ -9,6 +9,7 @@ import { AdminsPageRoutingModule } from './admins-routing.module';
 import { AdminsPage } from './admins.page';
 import { AdminLandingComponent } from 'src/app/components/admin-landing/admin-landing.component';
 import { NavComponent } from 'src/app/components/nav/nav.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NavComponent } from 'src/app/components/nav/nav.component';
   ],
   declarations: [AdminsPage,
      AdminLandingComponent,
-     NavComponent
+     NavComponent,
+     FooterComponent
     ]
 })
 export class AdminsPageModule {}

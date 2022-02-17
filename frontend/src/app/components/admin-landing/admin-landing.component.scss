@@ -4,13 +4,15 @@ ion-grid {
     border-style: hidden;
     
     ion-row:first-child {
-      background-color:  #2dd36f;
+      background-color:  #676767;
       font-weight: bold;
     }
     ion-col {
       border: 1px solid black;
       border-bottom: 0;
       border-right: 0;
+      color: white;
+    
     }
     ion-col:last-child {
       border-right: 1px solid black;
