@@ -9,13 +9,14 @@ const pool = seed;
  * @param {*} res 
  */
  exports.getAllOneId = (req, res) => {
+     console.log(req.params.emp_id);
     let query = {
-        text: 'SELECT emp_id, temp FROM attendance WHERE emp_id = $1 RETURNING emp_id, created_at',
-        value: [req.body.emp_id]
+        text: "SELECT attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id WHERE attendance.emp_id = $1",
+        value: [req.params.emp_id]
     }
     pool.query(query.text, query.value)
         .then(data => {
-            console.log(data.rows);
+            console.log(data);
             return res.send(data.rows);
         })
         .catch(err => {
