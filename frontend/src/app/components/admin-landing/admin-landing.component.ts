@@ -29,4 +29,8 @@ export class AdminLandingComponent implements OnInit {
     this.admin_name = JSON.parse(localStorage.getItem("admin_id"));
     this.name = this.admin_name[0].admin_name;
   }
+  
+  search(): void {
+    
+  }
 }
