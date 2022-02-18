@@ -17,7 +17,12 @@
   <div class="col">
     <ion-input>
       <ion-grid class="ion-margin m-2 row">
-        <ion-searchbar  [formControl]="searchField" debounce="100" class="col"></ion-searchbar>
+        <ion-toolbar>
+          <ion-searchbar 
+             debounce="1000" 
+             (ionChange)="ionChange($event)">
+          </ion-searchbar>
+      </ion-toolbar>
       </ion-grid>
     </ion-input>
   </div>

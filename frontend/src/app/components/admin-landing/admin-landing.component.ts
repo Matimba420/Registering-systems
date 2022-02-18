@@ -12,9 +12,10 @@ import { Observable } from 'rxjs';
 export class AdminLandingComponent implements OnInit {
 
   public searchField: FormControl;
+  returnValue: any;
 
   constructor(private attendanceService:AttendanceService) { 
-    
+
     this.searchField = new FormControl('');
   }
 
@@ -23,6 +24,7 @@ export class AdminLandingComponent implements OnInit {
   name: any;
   ngOnInit() {
     this.getAll();
+    // this.search();
 
   }
   
@@ -38,10 +40,19 @@ export class AdminLandingComponent implements OnInit {
     this.name = this.admin_name[0].admin_name;
   }
 
-  search(): void {
+  ionChange(event) {
+    console.log(event.detail.value)
 
-    // if(this.attendResponse.    ){}
-    // returnValue =
-    
+    console.log(this.search(event));
+}
+  search(event): String {
+    for(let x = 0; x < this.attendResponse.length; x++){
+    if(event.detail.value = this.attendResponse[x].name){
+      this.attendResponse[0] = this.attendResponse[x];
+      return this.attendResponse;
+    }
+  }
+
+  
   }
 }
