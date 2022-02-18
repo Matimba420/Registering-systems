@@ -3,6 +3,7 @@ import { FormControl,FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { AlertController } from '@ionic/angular';
 import { NavComponent } from '../nav/nav.component';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
 @Component({
   selector: 'app-login',
@@ -15,9 +16,9 @@ export class LoginComponent implements OnInit {
   loginFormAdmin: FormGroup;
   
   submitted = false;
-  constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController){}
+  constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController, private nativeStorage : NativeStorage){}
  
-  get registerValidation() { return this.loginFormEmp.controls; }
+  get registerValidationEmp() { return this.loginFormEmp.controls; }
   get registerValidationAdmin() { return this.loginFormEmp.controls; }
 
     ngOnInit() {
@@ -113,7 +114,10 @@ export class LoginComponent implements OnInit {
             alert("Successfully logged!!");
             sessionStorage.setItem("emp_id", JSON.stringify(res));
             localStorage.setItem("emp_id", JSON.stringify(res));
-          console.log(res);
+            this.nativeStorage.setItem("emp_id", JSON.stringify(res)).then(
+              () => console.log('Stored item!'),
+              error => console.error('Error storing item', error)
+            );
           window.location.href = "/landingpage";
           }
         }, err =>{
@@ -135,6 +139,10 @@ export class LoginComponent implements OnInit {
             alert("Successfully logged!!");
             sessionStorage.setItem("admin_id", JSON.stringify(res));
             localStorage.setItem("admin_id", JSON.stringify(res));
+            this.nativeStorage.setItem("admin_id", JSON.stringify(res)).then(
+              () => console.log('Stored item!'),
+              error => console.error('Error storing item', error)
+            );
           console.log(res);
           window.location.href = "/admins";
           }
