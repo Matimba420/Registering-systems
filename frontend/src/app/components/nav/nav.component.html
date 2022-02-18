@@ -1,15 +1,15 @@
-  <nav class="navbar " id="nav-container" style="background-color: rgba(0, 0, 0, 0.2);">
+  <nav class="navbar" id="nav-container" style="background-color: rgb(198,199,200);">
 
     <div class="container-fluid d-flex justify-content-between"> 
       <a id="logo-name"class="navbar-brand ml-5" href="#">
-        <img src="../../../assets/img/final-logo-crop.png" alt="" width="auto" height="auto" class="d-inline-block align-text-center">
+        <img src="../../../assets/img/grey-logo.png" alt="" width="auto" height="auto" class="d-inline-block align-text-center">
       </a>
   
     <form>
       <div class="container-fluid justify-content-end">
         <button class="btn btn-outline-success me-2" type="button" *ngIf="!sessionTrue" [routerLink]="['/login']">Login</button>
-        <button class="btn btn-sm btn-outline-white" type="button" *ngIf="!sessionTrue" [routerLink]="['/register']">Register</button>
-        <button class="btn btn-sm btn-outline-white" type="button" *ngIf="sessionTrue" (click)="clearSession()">Log Out</button>
+        <button class="btn btn-sm btn-outline-secondary text-black" type="button" *ngIf="!sessionTrue" [routerLink]="['/register']">Register</button>
+        <button class="btn btn-sm btn-outline-danger" type="button" *ngIf="sessionTrue" (click)="clearSession()">Log Out</button>
         
       </div>
     </form>

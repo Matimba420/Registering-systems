@@ -12,7 +12,71 @@
 
 <br>
   <!-- <h1>hello,{{admin.name}}</h1> -->
-  <h1>Admin Name Here</h1>
+  <h1>Hello {{name |titlecase}}</h1>
+  <!--SEARCH-->
+
+  <!-- <ion-grid class="ion-margin m-2 row">
+    <ion-searchbar class="col-md-3"></ion-searchbar>
+  </ion-grid>
+
+  <ion-grid class="ion-margin m-2 row">
+    <ion-list>
+      <ion-item class="col-md-2">
+        <ion-label>Sort attendance by:</ion-label>
+        <ion-select interface="popover">
+          <ion-select-option value="nes">Day</ion-select-option>
+          <ion-select-option value="n64">Week</ion-select-option>
+          <ion-select-option value="n64">Month</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-grid> -->
+
+
+<div class="ion-margin m-1 row">
+  <div class="col">
+    <ion-input>
+      <ion-grid class="ion-margin m-2 row">
+        <ion-searchbar class="col"></ion-searchbar>
+      </ion-grid>
+    </ion-input>
+  </div>
+  <div class="col">
+    <ion-input>
+      <ion-grid class="ion-margin m-2 row">
+    <ion-list>
+      <ion-item class="col">
+        <ion-label>Sort attendance by:</ion-label>
+        <ion-select interface="popover">
+          <ion-select-option value="nes">Day</ion-select-option>
+          <ion-select-option value="n64">Week</ion-select-option>
+          <ion-select-option value="n64">Month</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+    </ion-input>
+  </div>
+</div>
+<!-- 
+<div class="row g-3">
+  <div class="col">
+    <ion-input placeholder="test-oop">
+      
+    </ion-input>
+  </div>
+  <div class="col">
+    <ion-input placeholder="test-oop"></ion-input>
+  </div>
+</div> -->
+
+<!-- <ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let attendance of attendResponse$ | async">
+      <ion-label>{{ attendance.name }}</ion-label>
+    </ion-item>
+  </ion-list> -->
 
 
 

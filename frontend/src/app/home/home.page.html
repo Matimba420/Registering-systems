@@ -2,14 +2,18 @@
     <div class="container-fluid" style="max-height: 100%;">
         <app-nav></app-nav>
 
-        <div class="dashboard">
-            <a (click)="getStorage()" *ngIf="!isTrues()" >Dashboard</a>
-        </div>
+        
+            <button class="dashboard btn btn-outline-success mx-5 my-3">
+                <a (click)="getStorage()" *ngIf="!isTrues()" >Dashboard</a>
+            </button>
+        
         
         <app-carousel></app-carousel>
         <p class= "mt-5 mb-6 text-center" id="intro">End-to-end Check-in solution for universities, schools, and professional training.</p>
+        <div class="mt-4"><app-application-details></app-application-details></div>
+        <div class="container-fluid"><app-footer></app-footer></div>
+        
     </div>
-    <div class="mt-4"><app-application-details></app-application-details></div>
-    <div class="container-fluid"><app-footer></app-footer></div>
+    
     
 </div>
