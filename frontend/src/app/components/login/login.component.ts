@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   submitted = false;
   constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController){}
  
-  get registerValidation() { return this.loginFormEmp.controls; }
+  get registerValidationEmp() { return this.loginFormEmp.controls; }
   get registerValidationAdmin() { return this.loginFormEmp.controls; }
 
     ngOnInit() {
