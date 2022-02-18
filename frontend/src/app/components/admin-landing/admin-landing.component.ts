@@ -14,6 +14,7 @@ export class AdminLandingComponent implements OnInit {
   public searchField: FormControl;
 
   constructor(private attendanceService:AttendanceService) { 
+    
     this.searchField = new FormControl('');
   }
 
