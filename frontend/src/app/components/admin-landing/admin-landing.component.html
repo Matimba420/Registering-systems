@@ -1,36 +1,12 @@
 <ion-header [translucent]="true">
-  <!-- <ion-toolbar color="primary">
-    <ion-title>
-      Ionic Table using Ionic grid component
-    </ion-title>
-  </ion-toolbar> -->
   <app-nav></app-nav>
 </ion-header>
 
 <ion-content class="ion-margin">
 
 <br>
-  <!-- <h1>hello,{{admin.name}}</h1> -->
-  <h1>Hello {{name |titlecase}}</h1>
+  <h1>Hello {{name | titlecase}}</h1>
   <!--SEARCH-->
-
-  <!-- <ion-grid class="ion-margin m-2 row">
-    <ion-searchbar class="col-md-3"></ion-searchbar>
-  </ion-grid>
-
-  <ion-grid class="ion-margin m-2 row">
-    <ion-list>
-      <ion-item class="col-md-2">
-        <ion-label>Sort attendance by:</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="nes">Day</ion-select-option>
-          <ion-select-option value="n64">Week</ion-select-option>
-          <ion-select-option value="n64">Month</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  </ion-grid> -->
-
 
 <div class="ion-margin m-1 row">
   <div class="col">
@@ -57,27 +33,6 @@
     </ion-input>
   </div>
 </div>
-<!-- 
-<div class="row g-3">
-  <div class="col">
-    <ion-input placeholder="test-oop">
-      
-    </ion-input>
-  </div>
-  <div class="col">
-    <ion-input placeholder="test-oop"></ion-input>
-  </div>
-</div> -->
-
-<!-- <ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar>
-
-  <ion-list lines="none">
-    <ion-item *ngFor="let attendance of attendResponse$ | async">
-      <ion-label>{{ attendance.name }}</ion-label>
-    </ion-item>
-  </ion-list> -->
-
-
 
   <div class="container">
   <ion-grid class="ion-margin">
@@ -100,8 +55,5 @@
   </div>
 
   <ion-item lines="none">
-    <!-- <ion-button color="primary" size="small" slot="end" routerLink="/material">
-      Material Design Table
-    </ion-button> -->
   </ion-item>
 </ion-content>

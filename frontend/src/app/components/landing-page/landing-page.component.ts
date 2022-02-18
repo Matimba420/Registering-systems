@@ -8,6 +8,7 @@ import {AttendanceService} from '../../services/attendance.service';
 })
 export class LandingPageComponent implements OnInit {
   emp_name: any;
+  name: any;
   attendResponse: any;
   id: any;
 
@@ -22,6 +23,7 @@ export class LandingPageComponent implements OnInit {
   getAllOneId() {
     this.emp_name = JSON.parse(sessionStorage.getItem("emp_id"));
     this.id = this.emp_name[0].emp_id;
+    this.name = this.emp_name[0].name;
     this.attendanceService.getAllOneId(this.id).
     subscribe(res => {
       console.log(res);
