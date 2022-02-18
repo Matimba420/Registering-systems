@@ -1,7 +1,31 @@
 
 <div class="container-fluid">
- 
+  <!-- <ion-item *ngFor=" name ionList; let i = index"> -->
   <h2>Welcome, {{name | titlecase}}</h2>
+
+<ion-list lines="none">
+  <ion-item>
+    <ion-label >Do you have Covid?</ion-label>
+    <ion-select multiple="false" >  
+    <ion-select-option value="Yes" option value="no">Yes</ion-select-option>
+    <ion-select-option value="No">No</ion-select-option>
+    </ion-select>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label  >Temparature:</ion-label>
+  <ion-input type="float" ></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <p>{{newDate | date :  "dd.MM.y" }}</p>
+  </ion-item>
+</ion-list>
+
+ <ion-button (click)="updateList(i)"  fill="clear"> update
+</ion-button> 
+ 
+
    <!-- <li class="mb-3 me-0" *ngFor="let item of attendResponse"> -->
     <ion-grid class="ion-margin">
       <ion-row class="d-flex text-center">

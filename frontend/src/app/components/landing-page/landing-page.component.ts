@@ -12,6 +12,11 @@ export class LandingPageComponent implements OnInit {
   attendResponse: any;
   id: any;
 
+  
+
+  newDate: String = new Date().toISOString();
+  
+
   constructor(private attendanceService: AttendanceService) { }
 
   allEmployees: any;
