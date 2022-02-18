@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService} from '../../services/attendance.service';
 import { ReactiveFormsModule } from '@angular/forms'
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'app-admin-landing',
   templateUrl: './admin-landing.component.html',
@@ -8,7 +11,12 @@ import { ReactiveFormsModule } from '@angular/forms'
 })
 export class AdminLandingComponent implements OnInit {
 
-  constructor(private attendanceService:AttendanceService) { }
+  public searchField: FormControl;
+
+  constructor(private attendanceService:AttendanceService) { 
+    
+    this.searchField = new FormControl('');
+  }
 
   attendResponse: any = [];
   admin_name: any;
@@ -29,8 +37,11 @@ export class AdminLandingComponent implements OnInit {
     this.admin_name = JSON.parse(localStorage.getItem("admin_id"));
     this.name = this.admin_name[0].admin_name;
   }
-  
+
   search(): void {
+
+    // if(this.attendResponse.    ){}
+    // returnValue =
     
   }
 }

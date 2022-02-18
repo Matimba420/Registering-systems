@@ -12,7 +12,7 @@ export class AttendanceService {
   constructor(private http:HttpClient) { }
 
   getAllOneId(emp_id: String) {
-    return this.http.get(`${environment.backend}attendance/getAllOneId/`+emp_id)
+    return this.http.get(`${environment.backend}/attendance/getAllOneId/`+emp_id)
   }
   getAll(): Observable<any>{
     return this.http.get<Employee[]>(`${environment.backend}/attendance/getAll`);
