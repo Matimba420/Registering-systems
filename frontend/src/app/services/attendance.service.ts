@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Employee } from '../interfaces/employee';
+import { Temperature } from '../interfaces/temperature';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -17,7 +18,7 @@ export class AttendanceService {
   getAll(): Observable<any>{
     return this.http.get<Employee[]>(`${environment.backend}/attendance/getAll`);
   }
-  attend(employee : any) {
-    return this.http.post(`${environment.backend}/attendance/attend`, employee);
+  attend(temperature : Temperature) {
+    return this.http.post(`${environment.backend}/attendance/attend/${temperature.emp_id}/${temperature.temperature}`, temperature);
   }
 }

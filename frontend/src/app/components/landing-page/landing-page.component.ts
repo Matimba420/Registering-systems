@@ -59,6 +59,7 @@ export class LandingPageComponent implements OnInit {
     }, err=>{
       console.log(err);
     });
+    window.location.href = "/landingpage";
   }
 
   getAllOneId(): void {

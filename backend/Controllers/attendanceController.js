@@ -47,8 +47,8 @@ const pool = seed;
  */
  exports.attend = (req, res) => {
     let query = {
-        text: 'INSERT INTO attendance (emp_id, temp) VALUES $1, $2',
-        value:[req.body.emp_id, req.body.temp]
+        text: 'INSERT INTO attendance (emp_id, temp) VALUES ($1, $2) RETURNING *',
+        value:[req.params.emp_id, req.params.temp]
         }
     pool.query(query.text, query.value)
         .then(data => {
