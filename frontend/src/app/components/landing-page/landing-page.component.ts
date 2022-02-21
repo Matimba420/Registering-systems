@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import {AttendanceService} from '../../services/attendance.service';
 import { LocationService } from 'src/app/services/location.service';
 // import { Geolocation } from '@ionic-native/geolocation';
@@ -14,8 +15,12 @@ export class LandingPageComponent implements OnInit {
   name: any;
   attendResponse: any;
   id: any;
+  signInWithTempForm: FormGroup;
+  newDate: String = new Date().toISOString();
+  
 
-  constructor(private httpClientModule : HttpClientModule,private attendanceService: AttendanceService, private locationApi: LocationService) { }
+  constructor(private formBuilder: FormBuilder, private httpClientModule : HttpClientModule,private attendanceService: AttendanceService, private locationApi: LocationService) { }
+  
 
   allEmployees: any;
   latitude: any;
@@ -39,10 +44,24 @@ export class LandingPageComponent implements OnInit {
 
   
     this.getAllOneId();
-    // this.currentLocation();
+
+    this.signInWithTempForm = this.formBuilder.group({
+      temperature: ['']
+      });
   }
 
-  getAllOneId() {
+  sendForm(): void{
+    let temperature = {emp_id: this.id, temperature: this.signInWithTempForm.value.temperature}
+    console.log(temperature);
+    this.attendanceService.attend(temperature).
+    subscribe(res =>{
+      console.log(res);
+    }, err=>{
+      console.log(err);
+    });
+  }
+
+  getAllOneId(): void {
     this.emp_name = JSON.parse(sessionStorage.getItem("emp_id"));
     this.id = this.emp_name[0].emp_id;
     this.name = this.emp_name[0].name;

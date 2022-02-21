@@ -20,6 +20,7 @@
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
     "@awesome-cordova-plugins/camera": "^5.39.1",
+    "@awesome-cordova-plugins/native-storage": "^5.39.1",
     "@capacitor/core": "3.4.1",
     "@ionic-native/core": "^5.36.0",
     "@ionic-native/native-storage": "^5.36.0",
@@ -30,6 +31,7 @@
     "cordova-plugin-camera": "^6.0.0",
     "rxjs": "^6.6.7",
     "rxjs-compat": "^6.6.7",
+    "cordova-plugin-nativestorage": "^2.3.2",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
@@ -45,6 +47,7 @@
     "@angular/language-service": "~13.0.0",
     "@capacitor/cli": "3.4.1",
     "@ionic/angular-toolkit": "^5.0.0",
+    "@ionic/lab": "3.2.10",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",

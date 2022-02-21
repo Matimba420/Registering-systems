@@ -1,61 +1,107 @@
 <ion-header [translucent]="true">
+  
   <app-nav></app-nav>
 </ion-header>
 
 <ion-content class="ion-margin">
-  <br />
-  <h1>Hello {{ name | titlecase }}</h1>
+
+<br>
+  <!-- <h1>hello,{{admin.name}}</h1> -->
+  <h1>Hello {{name |titlecase}}</h1>
+
+  
   <!--SEARCH-->
 
-  <div class="ion-margin m-1 row">
-    <div class="col">
-      <ion-input>
-        <ion-grid class="ion-margin m-2 row">
-          <ion-searchbar class="col"></ion-searchbar>
-        </ion-grid>
-      </ion-input>
-    </div>
-    <div class="col">
-      <ion-input>
-        <ion-grid class="ion-margin m-2 row">
-          <ion-list>
-            <ion-item class="col">
-              <ion-label>Sort attendance by:</ion-label>
-              <ion-select interface="popover">
-                <ion-select-option value="nes">Day</ion-select-option>
-                <ion-select-option value="n64">Week</ion-select-option>
-                <ion-select-option value="n64">Month</ion-select-option>
-              </ion-select>
-            </ion-item>
-          </ion-list>
-        </ion-grid>
-      </ion-input>
-    </div>
-  </div>
 
-  <div class="container">
-    <ion-grid class="ion-margin">
-      <ion-row class="d-flex text-center">
-        <div class="col-2">No</div>
-        <div class="col-3">Full Name</div>
-        <div class="col-2">Temperature</div>
-        <div class="col-3">Clocking Time</div>
-        <div class="col-2">View History</div>
-      </ion-row>
-      <ion-row
-        class="d-flex text-center"
-        *ngFor="let attendance of attendResponse; index as i"
-      >
-        <div class="col-2">{{ i + 1 }}</div>
-        <div class="col-3">{{ attendance.name }}</div>
-        <div class="col-2">{{ attendance.temp }}</div>
-        <div class="col-3">
-          {{ attendance.created_at | date: "dd-MMM-y hh:mm" }}
-        </div>
-        <div class="col-2"><a href="**">View History</a></div>
+<div class="ion-margin m-1 row">
+  <div class="col">
+    <ion-input>
+      <ion-grid class="ion-margin m-2 row">
+        <ion-toolbar>
+          <ion-searchbar 
+             debounce="1000" 
+             (ionChange)="ionChange($event)">
+          </ion-searchbar>
+      </ion-toolbar>
+      </ion-grid>
+    </ion-input>
+  </div>
+  <div class="col">
+    <ion-input>
+      <ion-grid class="ion-margin m-2 row">
+    <ion-list>
+      <ion-item class="col">
+        <ion-label>Sort attendance by:</ion-label>
+        <ion-select interface="popover">
+          <ion-select-option value="nes">Day</ion-select-option>
+          <ion-select-option value="n64">Week</ion-select-option>
+          <ion-select-option value="ps">Month</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+    </ion-input>
+  </div>
+</div>
+<!-- 
+<div class="row g-3">
+  <div class="col">
+    <ion-input placeholder="test-oop">
+      
+    </ion-input>
+  </div>
+  <div class="col">
+    <ion-input placeholder="test-oop"></ion-input>
+  </div>
+</div> -->
+
+<!-- <ion-searchbar [formControl]="searchField" debounce="100"></ion-searchbar>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let attendance of attendResponse$ | async">
+      <ion-label>{{ attendance.name }}</ion-label>
+    </ion-item>
+  </ion-list> -->
+
+
+
+  <div class="container" *ngIf="!issearchResponse()">
+  <ion-grid class="ion-margin">
+    <ion-row class="d-flex text-center">
+      <div class = "col-2">No</div>
+      <div class="col-3">Full Name</div>
+      <div class="col-2">Temperature</div>
+      <div class="col-3">Clocking Time </div>
+      <div class="col-2">View History</div>
+      
       </ion-row>
     </ion-grid>
   </div>
 
   <ion-item lines="none"> </ion-item>
+  <div class="container" *ngIf="issearchResponse()">
+    <ion-grid class="ion-margin">
+      <ion-row class="d-flex text-center">
+        <div class = "col-2">No</div>
+        <div class="col-3">Full Name</div>
+        <div class="col-2">Temperature</div>
+        <div class="col-3">Clocking Time </div>
+        <div class="col-2">View History</div>
+        
+        </ion-row>
+      <ion-row class="d-flex text-center">
+        <div class = "col-2">{{ 1 }}</div>
+        <div class="col-3">{{ searchResponse.name }}</div>
+        <div class="col-2">{{ searchResponse.temp }}</div>
+          <div class="col-3">{{ searchResponse.created_at| date :  "dd-MMM-y hh:mm"}}</div>
+            <div class="col-2"><a href="**">View History</a></div>
+      </ion-row>
+    </ion-grid>
+    </div>
+
+  <ion-item lines="none">
+    <!-- <ion-button color="primary" size="small" slot="end" (click)="save()" >
+      Export to excel
+    </ion-button> -->
+  </ion-item>
 </ion-content>
