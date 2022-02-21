@@ -16,16 +16,18 @@
       </div>
       <div class="form-floating mb-3">
         <ion-item>
-          <ion-label >Do you have Covid?</ion-label>
+          <ion-label >Do you have Covid Symptoms?- If Yes, please see Covid Compliance Officer immediately</ion-label>
           <ion-select multiple="false" >  
           <ion-select-option value="Yes" option value="no">Yes</ion-select-option>
           <ion-select-option value="No">No</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
+      <br>
       <div class="form-floating mb-3">
         <p>Today's date: {{newDate | date :  "dd.MM.y" }}</p>
     </div>
+    <br>
     <div class="form-floating mb-3">
     <button
         class="btn btn-primary"
