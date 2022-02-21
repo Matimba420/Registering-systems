@@ -23,6 +23,7 @@ CREATE TABLE attendance(
     attendance_id SERIAL PRIMARY KEY,
     emp_id INTEGER NOT NULL,
     temp VARCHAR(5) NOT NULL,
+    -- have_covid VARCHAR(3) NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     FOREIGN KEY(emp_id) REFERENCES employees (emp_id)
 );
