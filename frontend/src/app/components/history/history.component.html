@@ -1,0 +1,18 @@
+<h1>History attendance of {{name | titlecase}}</h1>
+
+<button class="btn btn-primary" (click)="goBack()"> Back</button>
+
+<ion-grid class="ion-margin">
+  <ion-row class="d-flex text-center">
+      <div class = "col-4">No</div>
+      <!-- <div class = "col-4">Employee Full Name</div> -->
+      <div class = "col-4">Temperature</div>
+      <div class = "col-4">Clocking Time </div>
+  </ion-row>
+  <ion-row *ngFor="let attendance of history; index as i;">
+      <div class = "col-4">{{ i + 1 }}</div>
+      <!-- <div class = "col-3">{{ attendance.name }}</div> -->
+      <div class = "col-4">{{ attendance.temp }}</div>
+      <div class ="col-4">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
+  </ion-row>
+</ion-grid>

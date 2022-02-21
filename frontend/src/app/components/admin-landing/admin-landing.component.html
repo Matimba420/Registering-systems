@@ -6,17 +6,20 @@
 <ion-content class="ion-margin">
 
 <br>
-  <!-- <h1>hello,{{admin.name}}</h1> -->
-  <h1>Hello {{name |titlecase}}</h1>
-
+  <div class="container">
+    <h1>Hello {{name |titlecase}}</h1>
+<br>
+  <button class="btn btn-secondary" (click)="goBack()"> Back</button>
+  </div>
   
+<div class="container">
   <!--SEARCH-->
 
 
 <div class="ion-margin m-1 row">
-  <div class="col">
-    <ion-input>
-      <ion-grid class="ion-margin m-2 row">
+  <div class="col-6">
+  
+      <ion-grid class="ion-margin">
         <ion-toolbar>
           <ion-searchbar 
              debounce="1000" 
@@ -24,11 +27,11 @@
           </ion-searchbar>
       </ion-toolbar>
       </ion-grid>
-    </ion-input>
+  
   </div>
-  <div class="col">
+  <div class="col-6">
     <ion-input>
-      <ion-grid class="ion-margin m-2 row">
+      <ion-grid class="ion-margin">
     <ion-list>
       <ion-item class="col">
         <ion-label>Sort attendance by:</ion-label>
@@ -41,7 +44,8 @@
     </ion-list>
   </ion-grid>
     </ion-input>
-  </div>
+
+</div>
 </div>
 
   <div class="container" *ngIf="!issearchResponse()">
@@ -54,14 +58,14 @@
       <div class="col-2">View History</div>
       
       </ion-row>
-      <ion-row class="d-flex text-center" *ngFor="let attendance of attendResponse; index as i">
-        <div class = "col-2">{{ i + 1 }}</div>
-        <div class="col-3">{{ attendance.name }}</div>
-        <div class="col-2">{{ attendance.temp }}</div>
-          <div class="col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-            <div class="col-2"><a href="**">View History</a></div>
-      </ion-row>
-    </ion-grid>
+    <ion-row class="d-flex text-center" *ngFor="let attendance of attendResponse; index as i">
+      <div class = "col-2">{{ i + 1 }}</div>
+      <div class="col-3">{{ attendance.name }}</div>
+      <div class="col-2">{{ attendance.temp }}</div>
+        <div class="col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
+          <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: attendance.emp_id}">View History</a></div>
+    </ion-row>
+  </ion-grid>
   </div>
 
   <ion-item lines="none"> </ion-item>
@@ -80,10 +84,12 @@
         <div class="col-3">{{ searchResponse.name }}</div>
         <div class="col-2">{{ searchResponse.temp }}</div>
           <div class="col-3">{{ searchResponse.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-            <div class="col-2"><a href="**">View History</a></div>
+            <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: searchResponse.emp_id}" >View History</a></div>
       </ion-row>
     </ion-grid>
     </div>
+  </div>
+    <!-- paste here -->
 
   <ion-item lines="none">
     <!-- <ion-button color="primary" size="small" slot="end" (click)="save()" >
