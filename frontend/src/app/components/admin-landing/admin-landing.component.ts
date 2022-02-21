@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { ExcelService } from 'src/app/services/excel.service';
 
 @Component({
   selector: 'app-admin-landing',
@@ -20,7 +21,7 @@ export class AdminLandingComponent implements OnInit {
   admin_name: any;
   name: any;
 
-  constructor(private attendanceService:AttendanceService, private router:Router) { 
+  constructor(private attendanceService:AttendanceService, private router:Router, private excelService:ExcelService) { 
 
     this.searchField = new FormControl('');
   }
@@ -78,5 +79,9 @@ route(): void {
 
   goBack(): void {
     window.history.back();
+  }
+
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.attendResponse, 'employee_data');
   }
 }

@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { ExcelService } from './services/excel.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
       // {path: 'heroes-list', component: HeroesListComponent},
     ]),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage,
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage, ExcelService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
