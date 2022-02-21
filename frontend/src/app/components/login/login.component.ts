@@ -16,14 +16,15 @@ export class LoginComponent implements OnInit {
   loginFormAdmin: FormGroup;
   
   submitted = false;
+  message: string;
   constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController, private nativeStorage : NativeStorage){}
  
   get registerValidationEmp() { return this.loginFormEmp.controls; }
   get registerValidationAdmin() { return this.loginFormEmp.controls; }
 
     ngOnInit() {
+      // this.messages();
 
-      // this.passwordMatch();
       //Add User form validations
       this.loginFormEmp = this.formBuilder.group({
       email: ['', [Validators.compose([Validators.required, Validators.email])]],
@@ -126,6 +127,15 @@ export class LoginComponent implements OnInit {
         });  
       }  
       
+    }
+    messages(): void{
+
+      if(!this.fieldsWithDataEmp()){
+        this.message = "Fields can't be empty";
+      }
+      else{
+        this.message = "";
+      }
     }
     //admin
     submitAdmin(): void{

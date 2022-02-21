@@ -18,21 +18,7 @@
                     type="email"
                     placeholder="email"
                     formControlName="email"
-                    class="form-control"
-                    [ngClass]="{
-                      'is-invalid':
-                        submitted && registerValidationEmp.email.errors
-                    }"
-                  />
-                  <div
-                    *ngIf="submitted && registerValidation.email.errors"
-                    class="invalid-feedback"
-                  >
-                    <!-- <div *ngIf="submitted && registerValidation.email.errors">Email is required</div> -->
-                    <div *ngIf="registerValidationEmp.email.errors.email">
-                      Email must be a valid email address
-                    </div>
-                  </div>
+                    class="form-control">
 
                   <label for="floatingInput">Email address</label>
                 </div>
@@ -43,20 +29,9 @@
                     type="password"
                     placeholder="Password"
                     formControlName="password"
-                    class="form-control"
-                    [ngClass]="{
-                      'is-invalid':
-                        submitted && registerValidationEmp.password.errors
-                    }"
-                  />
-                  <div
-                    *ngIf="submitted && registerValidationEmp.password.errors"
-                    class="invalid-feedback"
-                  >
-                    <div *ngIf="registerValidationEmp.password.errors.required">
-                      Password is required
-                    </div>
-                  </div>
+                    class="form-control">
+                
+                    
                   <label for="floatingPassword">Password</label>
                 </div>
 
