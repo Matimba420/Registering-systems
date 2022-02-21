@@ -11,6 +11,8 @@
 <br>
   <button class="btn btn-secondary" (click)="goBack()"> Back</button>
   </div>
+
+  <button class="btn btn-primary" (click)="exportAsXLSX()">Save to excel</button>
   
 <div class="container">
   <!--SEARCH-->
@@ -68,6 +70,7 @@
   </ion-grid>
   </div>
 
+  <ion-item lines="none"> </ion-item>
   <div class="container" *ngIf="issearchResponse()">
     <ion-grid class="ion-margin">
       <ion-row class="d-flex text-center">
