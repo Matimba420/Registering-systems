@@ -18,6 +18,7 @@ export class HistoryComponent implements OnInit {
 
   history: any = [];
   fromRouter: any;
+  name: any;
 
   ngOnInit() {
     this.userHistory();
@@ -28,9 +29,13 @@ export class HistoryComponent implements OnInit {
 
     this.attendanceService.getAllOneId(this.fromRouter).subscribe(res =>{
       this.history = res;
+      this.name = this.history[0].name;
     },err =>{
       console.log(err)
     });
   }
 
+  goBack(): void {
+    window.history.back();
+  }
 }

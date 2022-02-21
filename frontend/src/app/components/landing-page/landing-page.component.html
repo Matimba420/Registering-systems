@@ -2,6 +2,9 @@
 <div class="container-fluid">
   <!-- <ion-item *ngFor=" name ionList; let i = index"> -->
   <h2>Welcome, {{name | titlecase}}</h2>
+
+  <br>
+  <button class="btn btn-primary" (click)="goBack()"> Back</button>
   <div class="card-body p-lg-5">
   <div class="takeTemp">
     <form [formGroup]="signInWithTempForm" (ngSubmit)="sendForm()">

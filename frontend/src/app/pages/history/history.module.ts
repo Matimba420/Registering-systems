@@ -9,6 +9,7 @@ import { HistoryPageRoutingModule } from './history-routing.module';
 import { HistoryPage } from './history.page';
 import { HistoryComponent } from '../../components/history/history.component'
 import { NavComponent } from 'src/app/components/nav/nav.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { NavComponent } from 'src/app/components/nav/nav.component';
     IonicModule,
     HistoryPageRoutingModule
   ],
-  declarations: [HistoryPage, HistoryComponent, NavComponent]
+  declarations: [HistoryPage, HistoryComponent, NavComponent, FooterComponent]
 })
 export class HistoryPageModule {}

@@ -76,7 +76,7 @@ route(): void {
 
   }
 
-  clicked(): void {
-
+  goBack(): void {
+    window.history.back();
   }
 }

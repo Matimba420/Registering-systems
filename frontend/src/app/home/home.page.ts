@@ -38,6 +38,8 @@ export class HomePage {
     return this.sessionTrue;
   }
 
-
+  goBack(): void {
+    window.history.back();
+  }
 
 }

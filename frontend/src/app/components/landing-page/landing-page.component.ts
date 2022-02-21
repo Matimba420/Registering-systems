@@ -53,4 +53,8 @@ export class LandingPageComponent implements OnInit {
     );
   }
 
+
+  goBack(): void {
+    window.history.back();
+  }
 }
