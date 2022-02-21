@@ -29,7 +29,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   sendForm(): void{
-    let temperature = {"emp_id": this.id, "temperature": this.signInWithTempForm.value.temperature}
+    let temperature = {emp_id : this.id, temperature: this.signInWithTempForm.value.temperature}
     console.log(temperature);
     this.attendanceService.attend(temperature).
     subscribe(res =>{
@@ -37,6 +37,7 @@ export class LandingPageComponent implements OnInit {
     }, err=>{
       console.log(err);
     });
+    window.location.href = "/landingpage";
   }
 
   getAllOneId(): void {
