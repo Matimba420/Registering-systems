@@ -14,6 +14,7 @@ import { RouterModule } from '@angular/router';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -24,6 +25,7 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+  
     RouterModule.forRoot([
       {path: 'application-details', component: ApplicationDetailsComponent},
       // {path: 'heroes-list', component: HeroesListComponent},

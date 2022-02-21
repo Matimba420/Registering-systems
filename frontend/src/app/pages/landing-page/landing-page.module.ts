@@ -11,19 +11,28 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { NavComponent } from 'src/app/components/nav/nav.component';
 import { LandingPageComponent } from 'src/app/components/landing-page/landing-page.component';
+// import { Geolocation } from '@ionic-native/geolocation';
+
 
 @NgModule({
+  providers:[
+    
+  ],
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LandingPagePageRoutingModule
+    LandingPagePageRoutingModule,
+ 
   ],
   declarations: [
     LandingPagePage, 
-    // LoginComponent,
+    //LoginComponent,
     RegisterComponent,
     NavComponent,
-    LandingPageComponent]
+    LandingPageComponent,
+    // Geolocation
+ 
+  ]
 })
 export class LandingPagePageModule {}
