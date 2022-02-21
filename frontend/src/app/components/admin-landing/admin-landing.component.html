@@ -17,7 +17,12 @@
   <div class="col">
     <ion-input>
       <ion-grid class="ion-margin m-2 row">
-        <ion-searchbar  [formControl]="searchField" debounce="100" class="col"></ion-searchbar>
+        <ion-toolbar>
+          <ion-searchbar 
+             debounce="1000" 
+             (ionChange)="ionChange($event)">
+          </ion-searchbar>
+      </ion-toolbar>
       </ion-grid>
     </ion-input>
   </div>
@@ -60,7 +65,7 @@
 
 
 
-  <div class="container">
+  <div class="container" *ngIf="!issearchResponse()">
   <ion-grid class="ion-margin">
     <ion-row class="d-flex text-center">
       <div class = "col-2">No</div>
@@ -79,6 +84,26 @@
     </ion-row>
   </ion-grid>
   </div>
+
+  <div class="container" *ngIf="issearchResponse()">
+    <ion-grid class="ion-margin">
+      <ion-row class="d-flex text-center">
+        <div class = "col-2">No</div>
+        <div class="col-3">Full Name</div>
+        <div class="col-2">Temperature</div>
+        <div class="col-3">Clocking Time </div>
+        <div class="col-2">View History</div>
+        
+        </ion-row>
+      <ion-row class="d-flex text-center">
+        <div class = "col-2">{{ 1 }}</div>
+        <div class="col-3">{{ searchResponse.name }}</div>
+        <div class="col-2">{{ searchResponse.temp }}</div>
+          <div class="col-3">{{ searchResponse.created_at| date :  "dd-MMM-y hh:mm"}}</div>
+            <div class="col-2"><a href="**">View History</a></div>
+      </ion-row>
+    </ion-grid>
+    </div>
 
   <ion-item lines="none">
     <!-- <ion-button color="primary" size="small" slot="end" (click)="save()" >

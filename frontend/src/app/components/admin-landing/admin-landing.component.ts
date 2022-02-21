@@ -3,6 +3,7 @@ import { AttendanceService} from '../../services/attendance.service';
 import { ReactiveFormsModule } from '@angular/forms'
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-admin-landing',
@@ -12,17 +13,21 @@ import { Observable } from 'rxjs';
 export class AdminLandingComponent implements OnInit {
 
   public searchField: FormControl;
+  returnValue: any;
 
   constructor(private attendanceService:AttendanceService) { 
-    
+
     this.searchField = new FormControl('');
   }
 
   attendResponse: any = [];
+  searchResponse: any = [];
+  searchResponseLength: any
   admin_name: any;
   name: any;
   ngOnInit() {
     this.getAll();
+    // this.search();
 
   }
 
@@ -44,6 +49,7 @@ export class AdminLandingComponent implements OnInit {
   }
   
   getAll(): void {
+    // if(){
     this.attendanceService.getAll().subscribe(res =>{
       console.log(res);
       this.attendResponse = res;
@@ -53,12 +59,33 @@ export class AdminLandingComponent implements OnInit {
 
     this.admin_name = JSON.parse(localStorage.getItem("admin_id"));
     this.name = this.admin_name[0].admin_name;
+  // }
   }
 
-  search(): void {
+  ionChange(event) {
+    console.log(event.detail.value)
 
-    // if(this.attendResponse.    ){}
-    // returnValue =
+    console.log(this.search(event));
+}
+  search(event): String {
+    for(let x = 0; x < this.attendResponse.length; x++){
+    if(event.detail.value == this.attendResponse[x].name){
+      console.log(this.attendResponse[x].name)
+      this.searchResponse = this.attendResponse[x];
+      return this.searchResponse;
+    }
+  }
+  
+  }
+
+  issearchResponse(): boolean {
     
+    if(this.searchResponse != ""){
+      return true;
+    }
+    else{
+      return false;
+    }
+
   }
 }
