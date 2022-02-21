@@ -1,8 +1,44 @@
 
 <div class="container-fluid">
- 
+  <!-- <ion-item *ngFor=" name ionList; let i = index"> -->
   <h2>Welcome, {{name | titlecase}}</h2>
-   <!-- <li class="mb-3 me-0" *ngFor="let item of attendResponse"> -->
+  <div class="card-body p-lg-5">
+  <div class="takeTemp">
+    <form [formGroup]="signInWithTempForm" (ngSubmit)="sendForm()">
+      <div class="form-floating mb-3">
+        <input
+          id="temprature"
+          type="temprature"
+          placeholder="Enter temperature"
+          formControlName="temperature"
+          class="form-control"/>
+          <label for="floatingInput">Temperature</label>
+      </div>
+      <div class="form-floating mb-3">
+        <ion-item>
+          <ion-label >Do you have Covid?</ion-label>
+          <ion-select multiple="false" >  
+          <ion-select-option value="Yes" option value="no">Yes</ion-select-option>
+          <ion-select-option value="No">No</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </div>
+      <div class="form-floating mb-3">
+        <p>Today's date: {{newDate | date :  "dd.MM.y" }}</p>
+    </div>
+    <div class="form-floating mb-3">
+    <button
+        class="btn btn-primary"
+        id="registerTemp"
+        type="submit"
+        name="registerTemp"
+        >Clock in
+      </button>
+    </div>  
+    </form>
+  </div>
+</div>
+
     <ion-grid class="ion-margin">
       <ion-row class="d-flex text-center">
         <ion-col>No</ion-col>
@@ -17,5 +53,4 @@
         <ion-col>{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</ion-col>
       </ion-row>
     </ion-grid>
-    <!-- </li> -->
 </div>

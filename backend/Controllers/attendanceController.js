@@ -47,10 +47,10 @@ const pool = seed;
  */
  exports.attend = (req, res) => {
     let query = {
-        body: 'INSERT INTO attendance (emp_id, temp) VALUES $1, $2',
+        text: 'INSERT INTO attendance (emp_id, temp) VALUES $1, $2',
         value:[req.body.emp_id, req.body.temp]
         }
-    pool.query(query.body, query.value)
+    pool.query(query.text, query.value)
         .then(data => {
             console.log(data.rows);
             // return res.send(data.rows);
