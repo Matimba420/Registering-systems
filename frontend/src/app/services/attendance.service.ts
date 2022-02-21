@@ -17,7 +17,7 @@ export class AttendanceService {
   getAll(): Observable<any>{
     return this.http.get<Employee[]>(`${environment.backend}/attendance/getAll`);
   }
-  attend(employee : Employee) {
+  attend(employee : any) {
     return this.http.post(`${environment.backend}/attendance/attend`, employee);
   }
 }

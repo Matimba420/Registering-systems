@@ -25,6 +25,23 @@ export class AdminLandingComponent implements OnInit {
     this.getAll();
 
   }
+
+  save(): void {
+    // let finalCSV = this.name.value+','+this.school.value;
+    // alert('finalCSV');
+    //  $cordovaFile.writeFile(cordova.file.externalRootDirectory, 'data.csv', finalCSV, true).then(function(result){
+    //        alert('Success! Export created!');
+    //      }, function(err) {
+    //        console.log("ERROR");
+    //      })let finalCSV = this.name.value+','+this.school.value;
+    // alert('finalCSV');
+    //  $cordovaFile.writeFile(cordova.file.externalRootDirectory, 'data.csv', finalCSV, true).then(function(result){
+    //        alert('Success! Export created!');
+    //      }, function(err) {
+    //        console.log("ERROR");
+    //      })
+
+  }
   
   getAll(): void {
     this.attendanceService.getAll().subscribe(res =>{

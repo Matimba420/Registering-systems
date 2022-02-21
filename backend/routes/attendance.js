@@ -4,6 +4,6 @@ const attendanceController = require('../controllers/attendanceController');
 
 router.get('/getAll', attendanceController.getAll);
 router.get('/getAllOneId/:emp_id', attendanceController.getAllOneId);
-router.get('/attend', attendanceController.attend)
+router.post('/attend', attendanceController.attend)
 
 module.exports = router
