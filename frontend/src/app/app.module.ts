@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { ExcelService } from './services/excel.service';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -24,12 +26,13 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
+  
     RouterModule.forRoot([
       {path: 'application-details', component: ApplicationDetailsComponent},
       // {path: 'heroes-list', component: HeroesListComponent},
     ]),
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage,
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage, ExcelService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

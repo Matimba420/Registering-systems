@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AttendanceService } from 'src/app/services/attendance.service';
+import { ExcelService } from 'src/app/services/excel.service';
 
 @Component({
   selector: 'history',
@@ -9,7 +10,7 @@ import { AttendanceService } from 'src/app/services/attendance.service';
 })
 export class HistoryComponent implements OnInit {
 
-  constructor(private attendanceService: AttendanceService, private activatedRoute: ActivatedRoute) { 
+  constructor(private attendanceService: AttendanceService, private activatedRoute: ActivatedRoute, private excelService:ExcelService) { 
     this.activatedRoute.queryParams.subscribe(data => {
       console.log(data.emp_id);
       this.fromRouter = data.emp_id;
@@ -37,5 +38,9 @@ export class HistoryComponent implements OnInit {
 
   goBack(): void {
     window.history.back();
+  }
+
+  exportAsXLSX():void {
+    this.excelService.exportAsExcelFile(this.history, 'employee_data');
   }
 }
