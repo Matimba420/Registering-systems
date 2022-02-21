@@ -59,7 +59,7 @@
       <div class="col-3">{{ attendance.name }}</div>
       <div class="col-2">{{ attendance.temp }}</div>
         <div class="col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-          <div class="col-2"><a href="**">View History</a></div>
+          <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: attendance.emp_id}">View History</a></div>
     </ion-row>
   </ion-grid>
   </div>
@@ -79,7 +79,7 @@
         <div class="col-3">{{ searchResponse.name }}</div>
         <div class="col-2">{{ searchResponse.temp }}</div>
           <div class="col-3">{{ searchResponse.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-            <div class="col-2"><a href="**">View History</a></div>
+            <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: searchResponse.emp_id}" >View History</a></div>
       </ion-row>
     </ion-grid>
     </div>
