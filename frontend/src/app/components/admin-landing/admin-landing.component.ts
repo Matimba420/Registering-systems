@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AttendanceService} from '../../services/attendance.service';
-import { ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-landing',
@@ -13,37 +14,24 @@ export class AdminLandingComponent implements OnInit {
 
   public searchField: FormControl;
   returnValue: any;
-
-  constructor(private attendanceService:AttendanceService) { 
-
-    this.searchField = new FormControl('');
-  }
-
   attendResponse: any = [];
   searchResponse: any = [];
   searchResponseLength: any
   admin_name: any;
   name: any;
+
+  constructor(private attendanceService:AttendanceService, private router:Router) { 
+
+    this.searchField = new FormControl('');
+  }
+
+route(): void {
+  this.router.navigate(['/history'], {queryParams: {emp_id: this.searchResponse.emp_id}})
+}
+
   ngOnInit() {
     this.getAll();
     // this.search();
-
-  }
-
-  save(): void {
-    // let finalCSV = this.name.value+','+this.school.value;
-    // alert('finalCSV');
-    //  $cordovaFile.writeFile(cordova.file.externalRootDirectory, 'data.csv', finalCSV, true).then(function(result){
-    //        alert('Success! Export created!');
-    //      }, function(err) {
-    //        console.log("ERROR");
-    //      })let finalCSV = this.name.value+','+this.school.value;
-    // alert('finalCSV');
-    //  $cordovaFile.writeFile(cordova.file.externalRootDirectory, 'data.csv', finalCSV, true).then(function(result){
-    //        alert('Success! Export created!');
-    //      }, function(err) {
-    //        console.log("ERROR");
-    //      })
 
   }
   
@@ -86,5 +74,9 @@ export class AdminLandingComponent implements OnInit {
       return false;
     }
 
+  }
+
+  goBack(): void {
+    window.history.back();
   }
 }
