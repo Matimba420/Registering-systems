@@ -5,6 +5,8 @@ import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ExcelService } from 'src/app/services/excel.service';
+import { LocationService } from 'src/app/services/location.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @Component({
   selector: 'app-admin-landing',
@@ -20,8 +22,12 @@ export class AdminLandingComponent implements OnInit {
   searchResponseLength: any
   admin_name: any;
   name: any;
+  latitude: any;
+  longitude: any;
+  myLocation:any;
+  filterTerm: string;
 
-  constructor(private attendanceService:AttendanceService, private router:Router, private excelService:ExcelService) { 
+  constructor(private attendanceService:AttendanceService, private router:Router, private excelService:ExcelService, private locationApi: LocationService, private ng2SearchPipeModule: Ng2SearchPipeModule) { 
 
     this.searchField = new FormControl('');
   }
@@ -33,6 +39,16 @@ route(): void {
   ngOnInit() {
     this.getAll();
     // this.search();
+
+    this.latitude = localStorage.getItem("Latitude")
+  this.longitude = localStorage.getItem("Longitude")
+
+  console.log( "lat"+ this.latitude + " long : " + this.longitude);
+
+  this.locationApi.getLocation(this.latitude,this.longitude).subscribe((res:any)=>{
+
+    this.myLocation = res.features[0].properties.formatted
+    });
 
   }
   

@@ -24,8 +24,8 @@
         <ion-item>
           <ion-label >Do you have Covid Symptoms?- If Yes, please see Covid Compliance Officer immediately</ion-label>
           <ion-select multiple="false"  formControlName="haveCovid" required>  
-          <ion-select-option value="true" option value="true">Yes</ion-select-option>
-          <ion-select-option value="false">No</ion-select-option>
+          <ion-select-option value="yes" option value="true">Yes</ion-select-option>
+          <ion-select-option value="no">No</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
@@ -55,12 +55,12 @@
         <div class = "col-3">Location</div>
       </ion-row>
       <ion-row  class= "d-flex text-center" *ngFor="let attendance of attendResponse;">
-          <div class = "col-3">{{ attendance.have_covid}}</div>
+          <div class = "col-3"><p *ngIf="attendance.have_covid; else doThis">Yes</p></div>
+          <!-- <div class = "col-3"><p *ngIf="!attendance.have_covid">No</p></div> -->
+          <ng-template #doThis>No</ng-template>
           <div class = "col-3">{{ attendance.temp }}</div>
           <div class = "col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
           <div class = "col-3">{{myLocation }}</div>
       </ion-row>
     </ion-grid>
 </div>
-
-

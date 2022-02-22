@@ -53,8 +53,12 @@ export class LandingPageComponent implements OnInit {
   sendForm(): void{
     let temperature = {emp_id: this.id, temperature: this.signInWithTempForm.value.temperature, haveCovid: this.signInWithTempForm.value.haveCovid}
     console.log(this.signInWithTempForm.value.haveCovid);
-    if(this.signInWithTempForm.value.haveCovid){
-      alert("Go to the doctor! Cannot associate with other employees!!!")
+    
+    if(this.signInWithTempForm.value.haveCovid == "true"){
+      alert("Please visit your nearest doctor for a Covid-19 test");
+    }
+    else{
+      alert("Successfully clogged in! Let get great dev done!");
     }
       this.attendanceService.attend(temperature).
     subscribe(res =>{
