@@ -21,9 +21,11 @@ VALUES
 DROP TABLE IF EXISTS attendance CASCADE;
 CREATE TABLE attendance(
     attendance_id SERIAL PRIMARY KEY,
-    emp_id INTEGER UNIQUE NOT NULL,
+    emp_id INTEGER NOT NULL,
     temp VARCHAR(5) NOT NULL,
-    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    have_covid BOOLEAN NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    FOREIGN KEY(emp_id) REFERENCES employees (emp_id)
 );
 
 --ADMIN TABLE
@@ -33,7 +35,7 @@ CREATE TABLE admin(
     admin_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    emp_id INTEGER UNIQUE NOT NULL,
+    emp_id INTEGER NOT NULL,
     FOREIGN KEY(emp_id) REFERENCES employees (emp_id)
 );
 
@@ -47,7 +49,8 @@ VALUES
 
 INSERT INTO attendance(emp_id, temp)
 VALUES
-('593', '36.7')
+('12345', '33.4'),
+('593', '36.7'),
 ('12347','36.2'),
 ('12348','35.4'),
 ('12349','33.3');
@@ -56,3 +59,5 @@ VALUES
 select attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id
 SELECT attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id WHERE emp_id ='12346'
 
+ALTER TABLE attendance
+ADD COLUMN haveCovid boolean NOT NULL;

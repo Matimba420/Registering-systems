@@ -8,21 +8,24 @@ ion-grid {
     //   size: 100px;
       font-weight: bold;
     }
- 
+  
     
     ion-row:last-child {
       border-bottom: 1px solid rgb(7, 7, 7);
     }
-     .col-2{
+     .col-4{
     border: 1px solid black;
     // border-bottom: 0;
     // border-right: 0;
     // color: white;
+    text-align: center;
   }
-  .col-3{
+  .col-4{
     border: 1px solid black;
     // border-bottom: 0;
     // border-right: 0;
     // color: white;
+    text-align: center;
   }
   }
+  
