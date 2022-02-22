@@ -23,7 +23,7 @@ CREATE TABLE attendance(
     attendance_id SERIAL PRIMARY KEY,
     emp_id INTEGER NOT NULL,
     temp VARCHAR(5) NOT NULL,
-    -- have_covid VARCHAR(3) NOT NULL,
+    have_covid BOOLEAN NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     FOREIGN KEY(emp_id) REFERENCES employees (emp_id)
 );
@@ -59,3 +59,5 @@ VALUES
 select attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id
 SELECT attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id WHERE emp_id ='12346'
 
+ALTER TABLE attendance
+ADD COLUMN haveCovid boolean NOT NULL;

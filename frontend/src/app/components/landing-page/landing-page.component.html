@@ -11,18 +11,21 @@
       <div class="form-floating mb-3">
         <input
           id="temprature"
-          type="temprature"
+          type="number"
           placeholder="Enter temperature"
           formControlName="temperature"
+          min="30"
+          max="40"
+          required
           class="form-control"/>
           <label for="floatingInput">Temperature</label>
       </div>
       <div class="form-floating mb-3">
         <ion-item>
           <ion-label >Do you have Covid Symptoms?- If Yes, please see Covid Compliance Officer immediately</ion-label>
-          <ion-select multiple="false" >  
-          <ion-select-option value="Yes" option value="no">Yes</ion-select-option>
-          <ion-select-option value="No">No</ion-select-option>
+          <ion-select multiple="false"  formControlName="haveCovid" required>  
+          <ion-select-option value="true" option value="true">Yes</ion-select-option>
+          <ion-select-option value="false">No</ion-select-option>
           </ion-select>
         </ion-item>
       </div>
@@ -46,18 +49,16 @@
 
     <ion-grid class="ion-margin">
       <ion-row class="d-flex text-center">
-       <!-- <div class = "col-1">No</div> -->
-       <div class = "col-3">Full Name</div>
+       <div class = "col-3">Have Covid Symptoms?</div>
         <div class = "col-3">Temperature</div>
         <div class = "col-3">Timestamp</div>
         <div class = "col-3">Location</div>
       </ion-row>
       <ion-row  class= "d-flex text-center" *ngFor="let attendance of attendResponse;">
-        <!-- <div class = "col-1">{{ i + 1 }}</div> -->
-          <div class = "col-3">{{ attendance.name }}</div>
-            <div class = "col-3">{{ attendance.temp }}</div>
-              <div class = "col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-              <div class = "col-3">{{myLocation }}</div>
+          <div class = "col-3">{{ attendance.have_covid}}</div>
+          <div class = "col-3">{{ attendance.temp }}</div>
+          <div class = "col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
+          <div class = "col-3">{{myLocation }}</div>
       </ion-row>
     </ion-grid>
 </div>
