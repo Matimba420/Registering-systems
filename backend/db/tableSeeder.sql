@@ -15,7 +15,8 @@ VALUES
 ('12346','lesho', 'lesho@email.com', 'lesho123'),
 ('12347','zizipho', 'zizipho@email.com', 'zizipho123'),
 ('12348','kgomotso', 'kgomotso@email.com', 'kgomotso123'),
-('12349','letlhogonolo', 'letlhogonolo@email.com', 'letlhogonolo123');
+('12349','letlhogonolo', 'letlhogonolo@email.com', 'letlhogonolo123'),
+('593', 'shiba koenaite', 'koenaite8@gmail.com', '123456');
 
 --ATTENDANCE TABLE
 DROP TABLE IF EXISTS attendance CASCADE;

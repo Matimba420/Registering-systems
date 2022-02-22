@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   
   loginFormEmp: FormGroup;
   loginFormAdmin: FormGroup;
+  buttValue: boolean;
   
   submitted = false;
   constructor( private userService: UserService, private formBuilder: FormBuilder, public alertController: AlertController, private nativeStorage : NativeStorage){}
@@ -32,7 +33,8 @@ export class LoginComponent implements OnInit {
 
       this.loginFormAdmin = this.formBuilder.group({
         emailAdmin: ['', [Validators.compose([Validators.required, Validators.email])]],
-        passwordAdmin: ['', [Validators.required]]
+        passwordAdmin: ['', [Validators.required]],
+        userType: ['', [Validators.required]]
         });
     }
 
@@ -101,6 +103,19 @@ export class LoginComponent implements OnInit {
       }
       
     }
+    
+    isWorking(): boolean{
+
+      if(this.loginFormAdmin.value.userType == 'admin'){
+        this.buttValue = true;
+      }
+      else{
+        this.buttValue = false;
+      }
+      return this.buttValue;
+    }
+
+
   //EMPLOYEE
     submitEmp(): void{
       // return console.log(this.myForm.value)

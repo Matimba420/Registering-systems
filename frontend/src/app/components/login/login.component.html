@@ -64,6 +64,7 @@
                   class="btn btn-primary"
                   id="register"
                   type="submit"
+                  *ngIf="isWorking()"
                   [disabled]="!fieldsWithDataEmp()"
                   name="registerSubmit"
                 >
@@ -140,11 +141,21 @@
                   </div>
                   <label for="floatingPassword">Password</label>
                 </div>
+                <div class="form-floating mb-3">
+                  <ion-item>
+                    <ion-label >User Type</ion-label>
+                    <ion-select multiple="false" formControlName="userType">
+                    <ion-select-option value="admin">Admin</ion-select-option>
+                    <ion-select-option value="employee">Employee</ion-select-option>
+                    </ion-select>
+                  </ion-item>
+                </div>
 
                 <button
                   class="btn btn-primary"
                   id="Adminregister"
                   type="submit"
+                  *ngIf="isWorking()"
                   [disabled]="!fieldsWithDataAdmin()"
                   name="registerSubmit"
                 >
