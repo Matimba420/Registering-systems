@@ -1,20 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="container-fluid">
+    <div class="container-fluid" style="max-height: 100%;">
+        <app-nav></app-nav>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+            <button class="btn btn-outline-success ms-5 my-3" (click)="goBack()" *ngIf="!isTrues()"> Back</button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+            <button class="dashboard btn btn-outline-success ms-3">
+                <a (click)="getStorage()" *ngIf="!isTrues()" >Dashboard</a>
+            </button>        
+        
+        <app-carousel></app-carousel>
+        <p class= "mt-5 mb-6 text-center" id="intro">End-to-end Check-in solution for universities, schools, and professional training.</p>
+        <div class="mt-4"><app-application-details></app-application-details></div>
+        <div class="container-fluid"><app-footer></app-footer></div>
+        
+    </div>
+    
+    
+</div>

@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  
+  <app-nav></app-nav>
+</ion-header>
+
+<ion-content class="ion-margin">
+
+<br>
+  <div class="container">
+    <h1>Hello {{name |titlecase}}</h1>
+<br>
+  <button class="btn btn-outline-secondary mx-4 my-2" (click)="goBack()"> Back</button>
+  <button class="btn btn-outline-secondary mx-5" (click)="exportAsXLSX()">Save to excel</button>
+  </div>
+
+
+  
+<div class="container">
+
+  <div class="container" *ngIf="!issearchResponse()">
+  <ion-grid class="ion-margin">
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    <br>
+    <ion-row class="headings">
+      
+      <div class = "col-1">No</div>
+      <ion-label class="col-2">Employee Full Name</ion-label>
+      <ion-label class="col-2">Temperature</ion-label>
+      <ion-label class="col-2">Clocking Time </ion-label>
+      <ion-label class="col-3">Location</ion-label>
+      <ion-label class="col-2">View History</ion-label>
+      </ion-row>
+      
+      <ion-list>
+        <ion-item *ngFor="let data of attendResponse | filter:filterTerm; index as i">
+          
+          <ion-label class="col-1">{{i + 1}}</ion-label>
+          <ion-label class="col-2">{{data.name}}</ion-label>
+          <ion-label class="col-2">{{data.temp}}</ion-label>
+          <ion-label class="col-2">{{data.created_at| date :  "dd-MMM-y hh:mm"}}</ion-label>
+          <ion-label class="col-3">{{myLocation}}</ion-label>
+          <ion-label class="col-2 ms-3"><a routerLink='/history' [queryParams]="{emp_id: data.emp_id}">View History</a></ion-label>
+        
+        </ion-item>
+      </ion-list>
+  </ion-grid>
+  </div>
+
+  <ion-item lines="none"> </ion-item>
+  </div>
+  
+
+  <ion-item lines="none">
+  </ion-item>
+</ion-content>

@@ -1,0 +1,17 @@
+  <nav class="navbar navbar-transparent bg-transparent" id="nav-container">
+
+    <div class="container-fluid d-flex justify-content-between"> 
+      <a id="logo-name"class="navbar-brand ml-5" href="/home">
+        <img src="../../../assets/img/final-logo-crop.png" alt="" width="auto" height="auto" class="d-inline-block align-text-center">
+      </a>
+  
+    <form>
+      <div class="container-fluid justify-content-end">
+        <button class="btn btn-outline-success me-2" type="button" *ngIf="!sessionTrue" routerLink='/login'>Login</button>
+        <button class="btn btn-sm btn-outline-secondary text-black" type="button" *ngIf="!sessionTrue" routerLink='/register'>Register</button>
+        <button class="btn btn-sm btn-outline-danger" type="button" *ngIf="sessionTrue" (click)="clearSession()">Log Out</button>
+        
+      </div>
+    </form>
+  </div>
+  </nav>
