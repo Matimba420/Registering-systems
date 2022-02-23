@@ -38,7 +38,6 @@
       <ion-item class="col">
         <ion-label>Sort attendance by:</ion-label>
         <ion-select interface="popover">
-          <ion-select-option value="nes">Day</ion-select-option>
           <ion-select-option value="n64">Week</ion-select-option>
           <ion-select-option value="ps">Month</ion-select-option>
         </ion-select>
@@ -64,7 +63,7 @@
       <div class = "col-2">{{ i + 1 }}</div>
       <div class="col-3">{{ attendance.name }}</div>
       <div class="col-2">{{ attendance.temp }}</div>
-        <div class="col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
+        <div class="col-3">{{ attendance.created_at | date :  "dd-MMM-y hh:mm"}}</div>
           <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: attendance.emp_id}">View History</a></div>
     </ion-row>
   </ion-grid>
