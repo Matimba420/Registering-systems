@@ -9,92 +9,47 @@
   <div class="container">
     <h1>Hello {{name |titlecase}}</h1>
 <br>
-  <button class="btn btn-secondary" (click)="goBack()"> Back</button>
+  <button class="btn btn-outline-secondary mx-4 my-2" (click)="goBack()"> Back</button>
+  <button class="btn btn-outline-secondary mx-5" (click)="exportAsXLSX()">Save to excel</button>
   </div>
 
-  <button class="btn btn-primary" (click)="exportAsXLSX()">Save to excel</button>
+
   
 <div class="container">
-  <!--SEARCH-->
-
-
-<div class="ion-margin m-1 row">
-  <div class="col-6">
-  
-      <ion-grid class="ion-margin">
-        <ion-toolbar>
-          <ion-searchbar 
-             debounce="1000" 
-             (ionChange)="ionChange($event)">
-          </ion-searchbar>
-      </ion-toolbar>
-      </ion-grid>
-  
-  </div>
-  <div class="col-6">
-    <ion-input>
-      <ion-grid class="ion-margin">
-    <ion-list>
-      <ion-item class="col">
-        <ion-label>Sort attendance by:</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option value="n64">Week</ion-select-option>
-          <ion-select-option value="ps">Month</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  </ion-grid>
-    </ion-input>
-
-</div>
-</div>
 
   <div class="container" *ngIf="!issearchResponse()">
   <ion-grid class="ion-margin">
-    <ion-row class="d-flex text-center">
-      <div class = "col-2">No</div>
-      <div class="col-3">Employee Full Name</div>
-      <div class="col-2">Temperature</div>
-      <div class="col-3">Clocking Time </div>
-      <div class="col-2">View History</div>
+    <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+    <br>
+    <ion-row class="headings">
       
+      <div class = "col-1">No</div>
+      <ion-label class="col-2">Employee Full Name</ion-label>
+      <ion-label class="col-2">Temperature</ion-label>
+      <ion-label class="col-2">Clocking Time </ion-label>
+      <ion-label class="col-3">Location</ion-label>
+      <ion-label class="col-2">View History</ion-label>
       </ion-row>
-    <ion-row class="d-flex text-center" *ngFor="let attendance of attendResponse; index as i">
-      <div class = "col-2">{{ i + 1 }}</div>
-      <div class="col-3">{{ attendance.name }}</div>
-      <div class="col-2">{{ attendance.temp }}</div>
-        <div class="col-3">{{ attendance.created_at | date :  "dd-MMM-y hh:mm"}}</div>
-          <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: attendance.emp_id}">View History</a></div>
-    </ion-row>
+      
+      <ion-list>
+        <ion-item *ngFor="let data of attendResponse | filter:filterTerm; index as i">
+          
+          <ion-label class="col-1">{{i + 1}}</ion-label>
+          <ion-label class="col-2">{{data.name}}</ion-label>
+          <ion-label class="col-2">{{data.temp}}</ion-label>
+          <ion-label class="col-2">{{data.created_at| date :  "dd-MMM-y hh:mm"}}</ion-label>
+          <ion-label class="col-3">{{myLocation}}</ion-label>
+          <ion-label class="col-2 ms-3"><a routerLink='/history' [queryParams]="{emp_id: data.emp_id}">View History</a></ion-label>
+        
+        </ion-item>
+      </ion-list>
   </ion-grid>
   </div>
 
   <ion-item lines="none"> </ion-item>
-  <div class="container" *ngIf="issearchResponse()">
-    <ion-grid class="ion-margin">
-      <ion-row class="d-flex text-center">
-        <div class = "col-2">No</div>
-        <div class="col-3">Full Name</div>
-        <div class="col-2">Temperature</div>
-        <div class="col-3">Clocking Time </div>
-        <div class="col-2">View History</div>
-        
-        </ion-row>
-      <ion-row class="d-flex text-center">
-        <div class = "col-2">{{ 1 }}</div>
-        <div class="col-3">{{ searchResponse.name }}</div>
-        <div class="col-2">{{ searchResponse.temp }}</div>
-          <div class="col-3">{{ searchResponse.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-            <div class="col-2"><a routerLink='/history' [queryParams]="{emp_id: searchResponse.emp_id}" >View History</a></div>
-      </ion-row>
-    </ion-grid>
-    </div>
   </div>
-    <!-- paste here -->
+  
 
   <ion-item lines="none">
-    <!-- <ion-button color="primary" size="small" slot="end" (click)="save()" >
-      Export to excel
-    </ion-button> -->
   </ion-item>
 </ion-content>

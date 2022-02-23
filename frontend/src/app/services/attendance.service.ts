@@ -19,6 +19,6 @@ export class AttendanceService {
     return this.http.get<Employee[]>(`${environment.backend}/attendance/getAll`);
   }
   attend(temperature : Temperature) {
-    return this.http.post(`${environment.backend}/attendance/attend/${temperature.emp_id}/${temperature.temperature}`, temperature);
+    return this.http.post(`${environment.backend}/attendance/attend/${temperature.emp_id}/${temperature.temperature}/${temperature.haveCovid}`, temperature);
   }
 }

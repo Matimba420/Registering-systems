@@ -36,7 +36,6 @@ export class LandingPageComponent implements OnInit {
   console.log( "lat"+ this.latitude + " long : " + this.longitude);
 
   this.locationApi.getLocation(this.latitude,this.longitude).subscribe((res:any)=>{
-    // console.log(res.features[0].properties.formatted);
 
     this.myLocation = res.features[0].properties.formatted
   });
@@ -46,14 +45,22 @@ export class LandingPageComponent implements OnInit {
     this.getAllOneId();
 
     this.signInWithTempForm = this.formBuilder.group({
-      temperature: ['']
+      temperature: [''],
+      haveCovid: ['']
       });
   }
 
   sendForm(): void{
-    let temperature = {emp_id: this.id, temperature: this.signInWithTempForm.value.temperature}
-    console.log(temperature);
-    this.attendanceService.attend(temperature).
+    let temperature = {emp_id: this.id, temperature: this.signInWithTempForm.value.temperature, haveCovid: this.signInWithTempForm.value.haveCovid}
+    console.log(this.signInWithTempForm.value.haveCovid);
+    
+    if(this.signInWithTempForm.value.haveCovid == "yes"){
+      alert("Please visit your nearest doctor for a Covid-19 test");
+    }
+    else{
+      alert("Successfully clogged in! Let get great dev done!");
+    }
+      this.attendanceService.attend(temperature).
     subscribe(res =>{
       console.log(res);
     }, err=>{
@@ -74,43 +81,6 @@ export class LandingPageComponent implements OnInit {
     }
     );
   }
-  // currentLocation(): void
-  //  {
-  //   this.geolocation
-  //     .getCurrentPosition()
-  //     .then((resp) => {
-  //       this.latitude = resp.coords.latitude;
-  //       this.longitude = resp.coords.longitude;
-
-  //       console.log(resp);
-
-  //       let location;
-  //       let houseNumber;
-
-  //       //Returns this to the service
-  //       this.locationApi
-  //         .getLocation(this.latitude, this.longitude)
-  //         .subscribe((res) => {
-  //           console.log(res);
-
-  //           location = res.features[0].properties.formatted;
-  //           (houseNumber = res.features[0].properties.housenumber),
-  //             alert(location);
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       console.log('Error getting location', error);
-  //     });
-
-  //   let watch = this.geolocation.watchPosition();
-
-  //   console.log(watch);
-
-  //   watch.subscribe((data) => {});
-  // }
-
-
-
 
   goBack(): void {
     window.history.back();

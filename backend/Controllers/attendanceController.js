@@ -11,7 +11,7 @@ const pool = seed;
  exports.getAllOneId = (req, res) => {
      console.log(req.params.emp_id);
     let query = {
-        text: "SELECT attendance.emp_id, attendance.temp, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id WHERE attendance.emp_id = $1",
+        text: "SELECT attendance.emp_id, attendance.temp, attendance.have_covid, attendance.created_at, employees.name from attendance INNER JOIN employees ON attendance.emp_id = employees.emp_id WHERE attendance.emp_id = $1",
         value: [req.params.emp_id]
     }
     pool.query(query.text, query.value)
@@ -47,8 +47,8 @@ const pool = seed;
  */
  exports.attend = (req, res) => {
     let query = {
-        text: 'INSERT INTO attendance (emp_id, temp) VALUES ($1, $2) RETURNING *',
-        value:[req.params.emp_id, req.params.temp]
+        text: 'INSERT INTO attendance (emp_id, temp, have_covid) VALUES ($1, $2, $3) RETURNING *',
+        value:[req.params.emp_id, req.params.temp, req.params.have_covid]
         }
     pool.query(query.text, query.value)
         .then(data => {

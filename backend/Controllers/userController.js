@@ -37,7 +37,7 @@ exports.logIn = (req, res) => {
 exports.logInAdmin = (req, res) => {
     let query = {
         text: 'SELECT * FROM admin WHERE email = $1 AND password = $2',
-        value: [req.body.emailAdmin, req.body.passwordAdmin]
+        value: [req.body.email, req.body.password]
     }
     pool.query(query.text, query.value)
         .then(data => {
