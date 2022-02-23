@@ -1,0 +1,28 @@
+<h1 class="ms-4">History attendance of : {{name | titlecase}}</h1>
+
+<button class="btn btn-outline-secondary mx-4 my-2" (click)="goBack()"> Back</button>
+<br>
+<button class="btn btn-outline-secondary mx-4" (click)="exportAsXLSX()">Save to excel</button>
+
+<ion-grid class="ion-margin">
+  <!-- <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar> -->
+  <br>
+  <ion-row class="headings">
+    
+    <div class = "col-3">No</div>
+    <ion-label class="col-3">Temperature</ion-label>
+    <ion-label class="col-3">Clocking Time </ion-label>
+    <ion-label class="col-3">Location</ion-label>
+    </ion-row>
+    
+    <ion-list>
+      <ion-item *ngFor="let data of history | filter : filterTerm; index as i">
+        
+        <ion-label class="col-3">{{i + 1}}</ion-label>
+        <ion-label class="col-3">{{data.temp}}</ion-label>
+        <ion-label class="col-3">{{data.created_at| date :  "dd-MMM-y hh:mm"}}</ion-label>
+        <ion-label class="col-3">{{myLocation}}</ion-label>
+      
+      </ion-item>
+    </ion-list>
+</ion-grid>

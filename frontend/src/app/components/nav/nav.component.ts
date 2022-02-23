@@ -21,6 +21,8 @@ clearSession(): void {
   
   sessionStorage.removeItem("emp_id");
   sessionStorage.removeItem("admin_id");
+  localStorage.removeItem("emp_id");
+  localStorage.removeItem("admin_id");
   alert("Logged out!");
   window.location.href = "/";
 }

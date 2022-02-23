@@ -9,6 +9,8 @@ router.post('/register', userController.register)
 // Sign In with emp_id and password
 router.post('/login', userController.logIn)
 
+router.post('/logInAdmin', userController.logInAdmin)
+
 /**
  * delete user by emp_id
  */

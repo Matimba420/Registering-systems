@@ -20,13 +20,13 @@ exports.register = (req, res) => {
 },
 exports.logIn = (req, res) => {
     let query = {
-        text: 'SELECT name, email, password FROM employees WHERE email = $1 AND password = $2',
+        text: 'SELECT emp_id, name, email, password FROM employees WHERE email = $1 AND password = $2',
         value: [req.body.email, req.body.password]
     }
     pool.query(query.text, query.value)
         .then(data => {
             console.log(data.rows);
-            return res.send({data: data.rows});
+            return res.send(data.rows);
         })
         .catch(err => {
             console.log(err);
@@ -36,13 +36,13 @@ exports.logIn = (req, res) => {
 
 exports.logInAdmin = (req, res) => {
     let query = {
-        text: 'SELECT admin_name, email, password FROM admin WHERE email = $1 AND password = $2',
+        text: 'SELECT * FROM admin WHERE email = $1 AND password = $2',
         value: [req.body.email, req.body.password]
     }
     pool.query(query.text, query.value)
         .then(data => {
             console.log(data.rows);
-            return res.send({data: data.rows});
+            return res.send(data.rows);
         })
         .catch(err => {
             console.log(err);
