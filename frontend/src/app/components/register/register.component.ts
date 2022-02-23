@@ -69,12 +69,12 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       emp_id: ['', [Validators.required,]],
       password: ['', [Validators.required]],
-      confirmpassword: ['', [Validators.required]]
+      confirm_password: ['', [Validators.required]]
       });
     }
 
     passwordMatch(): boolean {
-      if(this.registerForm.value.confirmpassword === this.registerForm.value.password){
+      if(this.registerForm.value.confirm_password === this.registerForm.value.password){
 
         console.log("This works")
         return true;
@@ -115,6 +115,7 @@ export class RegisterComponent implements OnInit {
           alert("Successfully registered!!");
           window.location.href = "/login";
             sessionStorage.setItem("emp_id", JSON.stringify(res));
+            localStorage.setItem("emp_id", JSON.stringify(res));
           console.log(res)
         }, err =>{
           alert(err+ "Login failed check console");
