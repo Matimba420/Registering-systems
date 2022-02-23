@@ -57,6 +57,8 @@ route(): void {
     this.attendanceService.getAll().subscribe(res =>{
       console.log(res);
       this.attendResponse = res;
+      this.sortingArr()
+      
     },err=>{
       alert(err+" Something went wrong retrieving data")
     });
@@ -71,6 +73,47 @@ route(): void {
 
     console.log(this.search(event));
 }
+
+sortingArr(): void{
+
+  const sortArr =  this.attendResponse.sort((a, b)=> +new Date(a.created_at) - +new Date(b.created_at))
+  console.log(this.attendResponse[0].created_at)
+  let day = this.attendResponse[0].created_at.substring(8,10)
+  let month = this.attendResponse[0].created_at.substring(5,7)
+  let year = this.attendResponse[0].created_at.substring(0,4)
+  console.log("the date is " + day + "/" + month + "/" + year);
+  day = Number(day) + 7;
+  if(day >= 31 || day >= 30){
+    month = Number(month) + 1
+    day = day - 30;
+
+  }
+  console.log("the new (by week) date is " + day + "/" + month + "/" + year);
+  month = 14
+  if(month > 12){
+    month = month - 12
+    year = Number(year) + 1
+
+  }
+  console.log("the new (by year) date is " + day + "/" + month + "/" + year);
+  
+
+  console.log(sortArr)
+
+
+}
+//  sortByEmp_id( a, b ) {
+//   if ( a.emp_id < b.emp_id ){
+//     return -1;
+//   }
+//   if ( a.emp_id > b.emp_id ){
+//     return 1;
+//   }
+//   return 0;
+  
+// }
+
+
   search(event): String {
     for(let x = 0; x < this.attendResponse.length; x++){
     if(event.detail.value == this.attendResponse[x].name){

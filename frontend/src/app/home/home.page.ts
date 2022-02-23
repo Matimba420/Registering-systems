@@ -21,6 +21,7 @@ export class HomePage {
   else{
     this.sessionTrue = false;
   }
+  
   if(localStorage.getItem("emp_id") || sessionStorage.getItem("emp_id")) {
     this.sessionTrue = true;
     this.location = "/landingpage";
