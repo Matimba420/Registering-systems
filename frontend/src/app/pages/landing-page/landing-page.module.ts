@@ -11,6 +11,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 import { NavComponent } from 'src/app/components/nav/nav.component';
 import { LandingPageComponent } from 'src/app/components/landing-page/landing-page.component';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
 // import { Geolocation } from '@ionic-native/geolocation';
 
 
@@ -32,6 +33,7 @@ import { LandingPageComponent } from 'src/app/components/landing-page/landing-pa
     RegisterComponent,
     NavComponent,
     LandingPageComponent,
+    FooterComponent,
     // Geolocation
  
   ]
