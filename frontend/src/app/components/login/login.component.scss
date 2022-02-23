@@ -103,11 +103,11 @@ form .input-box span.details{
    margin-bottom: 10px;
    cursor: pointer;
    transition: all 0.3s ease;
-   background: linear-gradient(135deg,  #8a8082, #6b0b23);
+   background: linear-gradient(135deg, #6c61f6, #3c8854);
  }
  form .button input:hover{
   /* transform: scale(0.99); */
-  background: linear-gradient(-135deg, #8a8082, #6b0b23);
+  background: linear-gradient(-135deg, #6c61f6, #3c8854);
   }
  @media(max-width: 584px){
  .container{
@@ -132,4 +132,8 @@ form .user-details .input-box{
   .container .content .category{
     flex-direction: column;
   }
+}
+
+.here {
+    text-decoration: none;
 }
