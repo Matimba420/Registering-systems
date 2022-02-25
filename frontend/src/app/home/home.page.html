@@ -1,6 +1,9 @@
-<div class="container-fluid">
+<ion-header>
+    <app-nav></app-nav></ion-header>
+    <ion-content>
+        <div class="container-fluid">
     <div class="container-fluid" style="max-height: 100%;">
-        <app-nav></app-nav>
+        <!-- <app-nav></app-nav> -->
 
             <button class="btn btn-outline-success ms-5 my-3" (click)="goBack()" *ngIf="!isTrues()"> Back</button>
 
@@ -17,3 +20,4 @@
     
     
 </div>
+</ion-content>

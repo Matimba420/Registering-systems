@@ -58,12 +58,10 @@ export class LoginComponent implements OnInit {
   }
 
   submitEmp(): void{
-     // return console.log(this.myForm.value)
      if(this.fieldsWithData()) {
-      // this.messages();
       this.userService.login(this.myForm.value)
       .subscribe(res => {
-        if(res) {
+        if(Object.keys(res).length > 0) {
           console.log(this.myForm.value)
           console.log(res);
           
@@ -77,6 +75,9 @@ export class LoginComponent implements OnInit {
         console.log(res);
         window.location.href = "/landingpage";
         }
+        else {
+          alert("Wrong email/password entered")
+        }
       }, err =>{
         alert(err+ "Login failed check console");
 
@@ -85,12 +86,10 @@ export class LoginComponent implements OnInit {
 
   }
   submitAdmin(): void{
-    // return console.log(this.myForm.value)
     if(this.fieldsWithData()) {
-      // this.messages();
       this.userService.logInAdmin(this.myForm.value)
       .subscribe(res => {
-        if(res) {
+        if(Object.keys(res).length > 0) {
           console.log(this.myForm.value)
           alert("Successfully logged!!");
           sessionStorage.setItem("admin_id", JSON.stringify(res));
@@ -101,6 +100,9 @@ export class LoginComponent implements OnInit {
           );
         console.log(res);
         window.location.href = "/admins";
+        }
+        else {
+          alert("Wrong email/password entered")
         }
       }, err =>{
         alert(err+ "Login failed check console");

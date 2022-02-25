@@ -10,12 +10,12 @@ exports.register = (req, res) => {
     }
     pool.query(query.text, query.value)
         .then(data => {
-            console.log(data.rows);
-            return res.send(data.rows);
+            console.log(data);
+            return res.send(data);
         })
         .catch(err => {
             console.log(err);
-            res.send(err);
+            res.status(400).send(err);
         })
 },
 exports.logIn = (req, res) => {
