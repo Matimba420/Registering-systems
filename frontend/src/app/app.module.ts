@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { LoginComponent } from './components/login/login.component';
 import { RouterModule } from '@angular/router';
 import { ApplicationDetailsComponent } from './components/application-details/application-details.component';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
@@ -28,8 +27,7 @@ import { ExcelService } from './services/excel.service';
     FormsModule,
   
     RouterModule.forRoot([
-      {path: 'application-details', component: ApplicationDetailsComponent},
-      // {path: 'heroes-list', component: HeroesListComponent},
+      {path: 'application-details', component: ApplicationDetailsComponent}
     ]),
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, NativeStorage, ExcelService,

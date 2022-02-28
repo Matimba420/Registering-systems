@@ -55,8 +55,6 @@ export class LandingPageComponent implements OnInit {
       temperature: [''],
       haveCovid: ['']
       });
-
-      // this.getIPAddress();
   }
 
 
