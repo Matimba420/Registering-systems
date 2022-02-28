@@ -25,7 +25,6 @@ import { FooterComponent } from 'src/app/components/footer/footer.component';
     ReactiveFormsModule, 
     IonicModule,
     LandingPagePageRoutingModule,
- 
   ],
   declarations: [
     LandingPagePage, 

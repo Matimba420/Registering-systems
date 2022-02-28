@@ -1,5 +1,5 @@
 <div class="container mx-auto mt-5" style="height: 68vh;">
-  <div class="title">Sign In</div>
+  <div class="title">Log In</div>
   <div class="content">
     <form [formGroup]="myNewForm">
       <div class="form-floating mb-3">
@@ -31,14 +31,17 @@
           placeholder="Enter your password" required>
         </div>
         <span class="details" *ngIf="!fieldsWithData()">{{message}}</span>
-
+        
       </div>
       <div class="button">
         <input type="submit" value="Sign In" *ngIf="isWorkingAdmin()" [disabled]="!fieldsWithData()" >
         <input type="submit" value="Sign In" *ngIf="isWorkingEmp()" [disabled]="!fieldsWithData()" >
+        <input type="reset" value="Reset Form">
       </div>
     </form> 
   </div>
-  <br><br>
+  <br><br><br>
   <span class="details">Not Registered? Click <a routerLink='/register'><span class="details">here</span></a> to register</span>
 </div>
+
+<br><br><br>
