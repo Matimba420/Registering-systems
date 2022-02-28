@@ -35,7 +35,7 @@
       </div>
       <br>
       <div class="form-floating mb-3">
-        <p class="date">Today's date: {{newDate | date :  "dd.MM.y" }}</p>
+        <p class="date">Today's date: {{newDate | date :  "dd.MM.y HH:mm" }}</p>
     </div>
     <br>
     <div class="form-floating mb-3">
@@ -44,6 +44,7 @@
         id="registerTemp"
         type="submit"
         name="registerTemp"
+        [disabled]="buttonNotWork"
         >Clock in
       </button>
     </div>  
@@ -64,7 +65,7 @@
               <ion-label class = "col-3"><p *ngIf="attendance.have_covid; else doThis">Yes</p></ion-label>
               <ng-template #doThis><p>No</p></ng-template>
               <ion-label class = "col-3">{{ attendance.temp }}</ion-label>
-              <ion-label class = "col-3 ms-5">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</ion-label>
+              <ion-label class = "col-3 ms-5">{{ attendance.created_at| date :  "dd-MMM-y HH:mm"}}</ion-label>
               <ion-label class = "col-3">{{myLocation }}</ion-label>
             </ion-item>
           </ion-list>
