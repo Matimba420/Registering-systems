@@ -46,6 +46,9 @@ VALUES
 INSERT INTO admin(admin_name, email, password, emp_id)
 VALUES
 ('mel', 'mel@email.com', 'admin123', '12345');
+INSERT INTO admin(admin_name, email, password, emp_id)
+VALUES
+('kg', 'kg@email.com', 'admin123', '12348');
 
 
 INSERT INTO attendance(emp_id, temp)

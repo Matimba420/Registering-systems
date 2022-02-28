@@ -1,10 +1,14 @@
+<ion-header>
+  <app-nav></app-nav>
+</ion-header>
+<br>
 
-<div class="container-fluid">
+<div class="container-fluid my-">
   <!-- <ion-item *ngFor=" name ionList; let i = index"> -->
   <h2>Welcome, {{name | titlecase}}</h2>
 
   <br>
-  <button class="btn btn-primary" (click)="goBack()"> Back</button>
+  <button class="btn btn-outline-secondary ms-5" (click)="goBack()"> Back</button>
   <div class="card-body p-lg-5">
   <div class="takeTemp">
     <form [formGroup]="signInWithTempForm" (ngSubmit)="sendForm()">
@@ -31,15 +35,16 @@
       </div>
       <br>
       <div class="form-floating mb-3">
-        <p>Today's date: {{newDate | date :  "dd.MM.y" }}</p>
+        <p class="date">Today's date: {{newDate | date :  "dd.MM.y HH:mm" }}</p>
     </div>
     <br>
     <div class="form-floating mb-3">
     <button
-        class="btn btn-primary"
+        class="btn btn-outline-success"
         id="registerTemp"
         type="submit"
         name="registerTemp"
+        [disabled]="buttonNotWork"
         >Clock in
       </button>
     </div>  
@@ -48,19 +53,21 @@
 </div>
 
     <ion-grid class="ion-margin">
-      <ion-row class="d-flex text-center">
+      <ion-row class="d-flex text-center headings">
        <div class = "col-3">Have Covid Symptoms?</div>
         <div class = "col-3">Temperature</div>
         <div class = "col-3">Timestamp</div>
         <div class = "col-3">Location</div>
       </ion-row>
-      <ion-row  class= "d-flex text-center" *ngFor="let attendance of attendResponse;">
-          <div class = "col-3"><p *ngIf="attendance.have_covid; else doThis">Yes</p></div>
-          <!-- <div class = "col-3"><p *ngIf="!attendance.have_covid">No</p></div> -->
-          <ng-template #doThis>No</ng-template>
-          <div class = "col-3">{{ attendance.temp }}</div>
-          <div class = "col-3">{{ attendance.created_at| date :  "dd-MMM-y hh:mm"}}</div>
-          <div class = "col-3">{{myLocation }}</div>
-      </ion-row>
+      
+          <ion-list>
+            <ion-item class= "d-flex text-center col-sm-12" *ngFor="let attendance of attendResponse;">
+              <ion-label class = "col-3"><p *ngIf="attendance.have_covid; else doThis">Yes</p></ion-label>
+              <ng-template #doThis><p>No</p></ng-template>
+              <ion-label class = "col-3">{{ attendance.temp }}</ion-label>
+              <ion-label class = "col-3 ms-5">{{ attendance.created_at| date :  "dd-MMM-y HH:mm"}}</ion-label>
+              <ion-label class = "col-3">{{myLocation }}</ion-label>
+            </ion-item>
+          </ion-list>
     </ion-grid>
 </div>

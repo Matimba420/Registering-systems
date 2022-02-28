@@ -4,6 +4,7 @@ import {AttendanceService} from '../../services/attendance.service';
 import { LocationService } from 'src/app/services/location.service';
 // import { Geolocation } from '@ionic-native/geolocation';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-landing-page',
@@ -12,14 +13,17 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LandingPageComponent implements OnInit {
   emp_name: any;
+  subStrDate: any;
   name: any;
-  attendResponse: any;
+  attendResponse: any = [];
   id: any;
+  length: any;
   signInWithTempForm: FormGroup;
   newDate: String = new Date().toISOString();
-  
+  buttonNotWork: boolean = false;
+  ipAddress: any;
 
-  constructor(private formBuilder: FormBuilder, private httpClientModule : HttpClientModule,private attendanceService: AttendanceService, private locationApi: LocationService) { }
+  constructor(private httpClient: HttpClient, private formBuilder: FormBuilder, private httpClientModule : HttpClientModule,private attendanceService: AttendanceService, private locationApi: LocationService) { }
   
 
   allEmployees: any;
@@ -29,6 +33,7 @@ export class LandingPageComponent implements OnInit {
 
 
  ngOnInit() {
+  this.getAllOneId();
 
   this.latitude = localStorage.getItem("Latitude")
   this.longitude = localStorage.getItem("Longitude")
@@ -38,17 +43,22 @@ export class LandingPageComponent implements OnInit {
   this.locationApi.getLocation(this.latitude,this.longitude).subscribe((res:any)=>{
 
     this.myLocation = res.features[0].properties.formatted
+  
   });
   
 
   
-    this.getAllOneId();
+   
+    this.subStrDate = this.newDate.substring(0,10)
 
     this.signInWithTempForm = this.formBuilder.group({
       temperature: [''],
       haveCovid: ['']
       });
+
+      // this.getIPAddress();
   }
+
 
   sendForm(): void{
     let temperature = {emp_id: this.id, temperature: this.signInWithTempForm.value.temperature, haveCovid: this.signInWithTempForm.value.haveCovid}
@@ -57,7 +67,7 @@ export class LandingPageComponent implements OnInit {
     if(this.signInWithTempForm.value.haveCovid == "yes"){
       alert("Please visit your nearest doctor for a Covid-19 test");
     }
-    else{
+    else if(this.signInWithTempForm.value.haveCovid == "no"){
       alert("Successfully clogged in! Let get great dev done!");
     }
       this.attendanceService.attend(temperature).
@@ -75,9 +85,19 @@ export class LandingPageComponent implements OnInit {
     this.name = this.emp_name[0].name;
     this.attendanceService.getAllOneId(this.id).
     subscribe(res => {
-      console.log(res);
       this.attendResponse = res;
-    },err => {console.log(err);
+      console.log(this.attendResponse);
+      this.length = this.attendResponse.length;
+      console.log(this.length)
+      for(let i = 0; i < this.length; i++) {
+      console.log(this.attendResponse[i].created_at.substring(0,10));
+
+      if(this.attendResponse[i].created_at.substring(0,10) == this.subStrDate){
+        this.buttonNotWork = true
+      }
+    }
+    },err => {
+      console.log(err);
     }
     );
   }
@@ -85,4 +105,6 @@ export class LandingPageComponent implements OnInit {
   goBack(): void {
     window.history.back();
   }
+
+ 
 }
